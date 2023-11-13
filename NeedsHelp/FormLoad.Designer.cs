@@ -106,7 +106,7 @@
             this.BtnHide.ShadowDecoration.BorderRadius = 30;
             this.BtnHide.Size = new System.Drawing.Size(66, 27);
             this.BtnHide.TabIndex = 1;
-            this.BtnHide.Text = "-";
+            this.BtnHide.Text = "—";
             this.BtnHide.Click += new System.EventHandler(this.BtnHide_Click);
             // 
             // BtnCloseForm
@@ -130,7 +130,7 @@
             this.BtnCloseForm.ShadowDecoration.BorderRadius = 30;
             this.BtnCloseForm.Size = new System.Drawing.Size(66, 27);
             this.BtnCloseForm.TabIndex = 0;
-            this.BtnCloseForm.Text = "X";
+            this.BtnCloseForm.Text = "✖";
             this.BtnCloseForm.Click += new System.EventHandler(this.guna2Button1_Click_1);
             // 
             // guna2Panel1

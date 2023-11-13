@@ -24,7 +24,7 @@ namespace NeedsHelp
 
         public void days(int numday)
         {
-            LblDay.Text=numday.ToString()+" ";
+           BtnDay.Text=numday.ToString()+" ";
         }
 
 

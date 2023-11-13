@@ -28,17 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.LblDay = new System.Windows.Forms.Label();
+            this.BtnDay = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
-            // LblDay
+            // BtnDay
             // 
-            this.LblDay.AutoSize = true;
-            this.LblDay.Location = new System.Drawing.Point(4, 4);
-            this.LblDay.Name = "LblDay";
-            this.LblDay.Size = new System.Drawing.Size(35, 13);
-            this.LblDay.TabIndex = 0;
-            this.LblDay.Text = "label1";
+            this.BtnDay.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnDay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnDay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnDay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnDay.FillColor = System.Drawing.Color.White;
+            this.BtnDay.Font = new System.Drawing.Font("Arial", 7F);
+            this.BtnDay.ForeColor = System.Drawing.Color.Black;
+            this.BtnDay.Location = new System.Drawing.Point(-1, -1);
+            this.BtnDay.Name = "BtnDay";
+            this.BtnDay.Size = new System.Drawing.Size(40, 40);
+            this.BtnDay.TabIndex = 0;
             // 
             // UserControlDays
             // 
@@ -46,17 +51,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.LblDay);
+            this.Controls.Add(this.BtnDay);
             this.Name = "UserControlDays";
-            this.Size = new System.Drawing.Size(105, 79);
+            this.Size = new System.Drawing.Size(38, 38);
             this.Load += new System.EventHandler(this.UserControlDays_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label LblDay;
+        public Guna.UI2.WinForms.Guna2Button BtnDay;
     }
 }

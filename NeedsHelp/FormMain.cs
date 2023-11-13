@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
@@ -24,9 +25,10 @@ namespace NeedsHelp
 
         }
 
-        int month;
-        int year = 1;
+       public static int month, Day;
+       public static int year = 1;
 
+        public static string TxtCon = "Data Source=213.155.192.79,3002;Initial Catalog=DBKurs23;User ID=u21levinsas;Password=ngh4";
         void DisplayDays()
         {
             DateTime Now = DateTime.Now;
@@ -50,30 +52,44 @@ namespace NeedsHelp
             {
                 UserControlDays ucDays = new UserControlDays();
                 ucDays.days(i);
+
+
+
+                // Добавляем обработчик события Enter для UserControlDays
+                ucDays.Enter += (enterSender, enterArgs) => UserControlDays_Enter(enterSender, enterArgs, i);
+
                 DaysContainer.Controls.Add(ucDays);
             }
         }
 
-
+        void FillForm()
+        {
+            try
+            {
+                SqlConnection Con = new SqlConnection(TxtCon);
+                SqlCommand Cmd = new SqlCommand($"SELECT * from Events where State='Предстоящее'", Con);
+                Con.Open();
+                SqlDataReader Res = Cmd.ExecuteReader();
+                Res.Read();
+                if (Res.HasRows)
+                {
+                   // LblName.Text = Res["Name"].ToString();
+                   // LblID.Text = "ID сотрудника: " + (Res["IdPredp"].ToString());
+                }
+                else LblInformation.Visible = true;
+                Con.Close();
+            }
+            catch { LblInformation.Visible = true; }
+        }
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            MiddleContainer.BorderRadius = 20;
-            MiddleContainer.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            MiddleContainer.ShadowDecoration.Depth = 50;
-            MiddleContainer.BackColor = Color.Gray;
-
-            LeftContainer.BorderRadius = 20;
-            LeftContainer.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            LeftContainer.ShadowDecoration.Depth = 50;
-            LeftContainer.BackColor = Color.Gray;
-
-            HideContainer.BorderRadius = 20;
-            HideContainer.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            HideContainer.ShadowDecoration.Depth = 50;
-            HideContainer.BackColor = Color.Gray;
-
+            // TODO: This line of code loads data into the 'dBKurs23DataSet.Events' table. You can move, or remove it, as needed.
+            this.eventsTableAdapter.Fill(this.dBKurs23DataSet.Events);
             DisplayDays();
+            DgvEvents.AllowUserToResizeColumns = false;
+            FillForm();
+            DgvEvents.ClearSelection();
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
@@ -99,39 +115,6 @@ namespace NeedsHelp
         Stopwatch st = new Stopwatch();
         MouseButtons mb = MouseButtons.None;
 
-        private void BtnShowHide_Click(object sender, EventArgs e)
-        {
-            if (HideContainer.Visible == false)
-            {
-                Show2SloiAnimated.Show(HideContainer);
-                HideContainer.Enabled = true;
-            }
-            else HideContainer.Visible = false;
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            HideContainer.Visible = false;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            if (HideContainer.Visible == false)
-            { 
-                LblShow.Visible = false;
-                RightContainer.FillColor = Color.Gray;
-                //Show2SloiAnimated.Show(HideContainer);
-               HideContainer.Visible= true;
-            }
-            else HideContainer.Visible = false;
-        }
-
-        private void LblHide_Click_1(object sender, EventArgs e)
-        {
-            HideContainer.Visible = false;
-            RightContainer.FillColor = Color.White;
-            LblShow.Visible = true;
-        }
 
         private void guna2Button2_Click_1(object sender, EventArgs e)
         {
@@ -160,6 +143,11 @@ namespace NeedsHelp
             {
                 UserControlDays ucDays = new UserControlDays();
                 ucDays.days(i);
+
+
+                // Добавляем обработчик события Enter для UserControlDays
+                ucDays.Enter += (enterSender, enterArgs) => UserControlDays_Enter(enterSender, enterArgs, i);
+
                 DaysContainer.Controls.Add(ucDays);
             }
         }
@@ -191,8 +179,49 @@ namespace NeedsHelp
             {
                 UserControlDays ucDays = new UserControlDays();
                 ucDays.days(i);
+
+
+                // Добавляем обработчик события Enter для UserControlDays
+                ucDays.Enter += (enterSender, enterArgs) => UserControlDays_Enter(enterSender, enterArgs, i);
+
+
                 DaysContainer.Controls.Add(ucDays);
             }
+        }
+
+        private void UserControlDays_Enter(object sender, EventArgs e, int day)
+        {
+            UserControlDays enteredControl = sender as UserControlDays;
+            Day=int.Parse(enteredControl.BtnDay.Text);
+
+            if (enteredControl != null)
+            {
+                Point mouseArgs = Control.MousePosition;
+                CMenuStrip.Show(mouseArgs);
+                //MessageBox.Show($"Вы перешли на {enteredControl} {Day} дня {year} года {month} месяца");
+            }
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void DgvEvents_Leave(object sender, EventArgs e)
+        {
+            DgvEvents.ClearSelection();
+        }
+
+        private void CMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            ToolStripItem Item = e.ClickedItem;
+            if (Item == добавитьСобытиеToolStripMenuItem)
+            {
+                FormAddEvent Frm = new FormAddEvent();
+                Frm.LblDate.Text =$"{year}-{month}-{Day}";
+                Frm.ShowDialog();
+            }
+
         }
     }
 }
