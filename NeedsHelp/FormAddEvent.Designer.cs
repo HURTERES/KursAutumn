@@ -49,7 +49,13 @@
             this.LblDate = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.CMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.добавитьСобытиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LblId = new System.Windows.Forms.Label();
+            this.DelEvent = new System.Windows.Forms.Button();
+            this.Check = new System.Windows.Forms.Label();
             this.PanelDown.SuspendLayout();
+            this.CMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -62,6 +68,9 @@
             this.PanelDown.BackColor = System.Drawing.Color.Transparent;
             this.PanelDown.BorderColor = System.Drawing.Color.Gray;
             this.PanelDown.BorderThickness = 1;
+            this.PanelDown.Controls.Add(this.Check);
+            this.PanelDown.Controls.Add(this.DelEvent);
+            this.PanelDown.Controls.Add(this.LblId);
             this.PanelDown.Controls.Add(this.LblLength);
             this.PanelDown.Controls.Add(this.BtnAddEvent);
             this.PanelDown.Controls.Add(this.CbxFullDay);
@@ -79,9 +88,9 @@
             this.PanelDown.Controls.Add(this.panel1);
             this.PanelDown.Controls.Add(this.LblDate);
             this.PanelDown.Controls.Add(this.label1);
-            this.PanelDown.Location = new System.Drawing.Point(0, 0);
+            this.PanelDown.Location = new System.Drawing.Point(0, -2);
             this.PanelDown.Name = "PanelDown";
-            this.PanelDown.Size = new System.Drawing.Size(623, 397);
+            this.PanelDown.Size = new System.Drawing.Size(623, 399);
             this.PanelDown.TabIndex = 31;
             // 
             // LblLength
@@ -112,7 +121,7 @@
             // 
             this.CbxFullDay.AutoSize = true;
             this.CbxFullDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CbxFullDay.Location = new System.Drawing.Point(427, 330);
+            this.CbxFullDay.Location = new System.Drawing.Point(450, 330);
             this.CbxFullDay.Name = "CbxFullDay";
             this.CbxFullDay.Size = new System.Drawing.Size(121, 22);
             this.CbxFullDay.TabIndex = 53;
@@ -215,7 +224,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(226, 329);
+            this.label4.Location = new System.Drawing.Point(226, 330);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 20);
             this.label4.TabIndex = 45;
@@ -241,6 +250,7 @@
             // 
             // TbxDesc
             // 
+            this.TbxDesc.BorderColor = System.Drawing.Color.White;
             this.TbxDesc.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TbxDesc.DefaultText = "";
             this.TbxDesc.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -260,6 +270,7 @@
             this.TbxDesc.SelectedText = "";
             this.TbxDesc.Size = new System.Drawing.Size(477, 232);
             this.TbxDesc.TabIndex = 42;
+            this.TbxDesc.Click += new System.EventHandler(this.TbxDesc_Click);
             this.TbxDesc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbxDesc_KeyPress);
             // 
             // label2
@@ -274,6 +285,7 @@
             // 
             // Tbxname
             // 
+            this.Tbxname.BorderColor = System.Drawing.Color.White;
             this.Tbxname.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Tbxname.DefaultText = "";
             this.Tbxname.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -293,6 +305,7 @@
             this.Tbxname.SelectedText = "";
             this.Tbxname.Size = new System.Drawing.Size(322, 33);
             this.Tbxname.TabIndex = 40;
+            this.Tbxname.Click += new System.EventHandler(this.Tbxname_Click);
             // 
             // panel1
             // 
@@ -328,6 +341,58 @@
             this.guna2DragControl1.TargetControl = this.PanelDown;
             this.guna2DragControl1.UseTransparentDrag = true;
             // 
+            // CMenuStrip
+            // 
+            this.CMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.добавитьСобытиеToolStripMenuItem});
+            this.CMenuStrip.Name = "CMenuStrip";
+            this.CMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.CMenuStrip.Size = new System.Drawing.Size(205, 26);
+            // 
+            // добавитьСобытиеToolStripMenuItem
+            // 
+            this.добавитьСобытиеToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
+            this.добавитьСобытиеToolStripMenuItem.Enabled = false;
+            this.добавитьСобытиеToolStripMenuItem.Name = "добавитьСобытиеToolStripMenuItem";
+            this.добавитьСобытиеToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.добавитьСобытиеToolStripMenuItem.Text = "Не все поля заполнены";
+            this.добавитьСобытиеToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // LblId
+            // 
+            this.LblId.AutoSize = true;
+            this.LblId.Location = new System.Drawing.Point(347, 13);
+            this.LblId.Name = "LblId";
+            this.LblId.Size = new System.Drawing.Size(35, 13);
+            this.LblId.TabIndex = 75;
+            this.LblId.Text = "NULL";
+            this.LblId.Visible = false;
+            // 
+            // DelEvent
+            // 
+            this.DelEvent.BackColor = System.Drawing.Color.Brown;
+            this.DelEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DelEvent.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DelEvent.ForeColor = System.Drawing.Color.White;
+            this.DelEvent.Location = new System.Drawing.Point(27, 361);
+            this.DelEvent.Name = "DelEvent";
+            this.DelEvent.Size = new System.Drawing.Size(185, 28);
+            this.DelEvent.TabIndex = 76;
+            this.DelEvent.Text = "Delete Event";
+            this.DelEvent.UseVisualStyleBackColor = false;
+            this.DelEvent.Visible = false;
+            this.DelEvent.Click += new System.EventHandler(this.DelEvent_Click);
+            // 
+            // Check
+            // 
+            this.Check.AutoSize = true;
+            this.Check.Location = new System.Drawing.Point(269, 11);
+            this.Check.Name = "Check";
+            this.Check.Size = new System.Drawing.Size(38, 13);
+            this.Check.TabIndex = 77;
+            this.Check.Text = "Check";
+            this.Check.Visible = false;
+            // 
             // FormAddEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,8 +404,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormAddEvent";
             this.Load += new System.EventHandler(this.FormAddEvent_Load);
+            this.Shown += new System.EventHandler(this.FormAddEvent_Shown);
             this.PanelDown.ResumeLayout(false);
             this.PanelDown.PerformLayout();
+            this.CMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -348,23 +415,28 @@
         #endregion
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Panel PanelDown;
-        private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2TextBox Tbxname;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
-        private Guna.UI2.WinForms.Guna2TextBox TbxBeginHour;
-        private System.Windows.Forms.ComboBox CmbTimeBegin;
-        private System.Windows.Forms.ComboBox CmbTimeEnd;
-        private Guna.UI2.WinForms.Guna2TextBox TbxEndHour;
-        private System.Windows.Forms.CheckBox CbxFullDay;
-        private System.Windows.Forms.Button BtnAddEvent;
         public System.Windows.Forms.Label LblDate;
-        private Guna.UI2.WinForms.Guna2TextBox TbxDesc;
         public System.Windows.Forms.Label LblLength;
+        private System.Windows.Forms.ContextMenuStrip CMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem добавитьСобытиеToolStripMenuItem;
+        public Guna.UI2.WinForms.Guna2TextBox Tbxname;
+        public Guna.UI2.WinForms.Guna2TextBox TbxBeginHour;
+        public Guna.UI2.WinForms.Guna2TextBox TbxEndHour;
+        public Guna.UI2.WinForms.Guna2TextBox TbxDesc;
+        public System.Windows.Forms.Label LblId;
+        public System.Windows.Forms.ComboBox CmbTimeBegin;
+        public System.Windows.Forms.ComboBox CmbTimeEnd;
+        public System.Windows.Forms.Button DelEvent;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.CheckBox CbxFullDay;
+        public System.Windows.Forms.Button BtnAddEvent;
+        public System.Windows.Forms.Label Check;
     }
 }

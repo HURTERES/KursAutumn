@@ -123,24 +123,155 @@ namespace NeedsHelp
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            DateTime DT = DateTime.Now;
 
-            string FormattedBeginDate = DT.ToString($"{LblDate.Text} {TbxBeginHour.Text}:00:00");
-            if (CmbTimeBegin.SelectedIndex == 1)
-                FormattedBeginDate = DT.ToString($"{LblDate.Text} {int.Parse(TbxBeginHour.Text)+12}:00:00");
-            string FormattedEndDate = DT.ToString($"{LblDate.Text} {TbxEndHour.Text}:00:00");
-            if (CmbTimeEnd.SelectedIndex == 1)
-                FormattedEndDate = DT.ToString($"{LblDate.Text} {int.Parse(TbxEndHour.Text)+12}:00:00");
+            if (Tbxname.Text == "" || TbxDesc.Text == "")
+            {
+                Point mouseArgs = Control.MousePosition;
+                CMenuStrip.Show(mouseArgs);
+                if(Tbxname.Text=="")
+                Tbxname.BorderColor = Color.Red;
+                if(TbxDesc.Text=="")
+                TbxDesc.BorderColor = Color.Red;
+            }
+            else
+            {
+                DateTime DT = DateTime.Now;
 
-            SqlConnection Con = new SqlConnection(FormMain.TxtCon);
 
-            SqlCommand Cmd = new SqlCommand($"insert into [Events] (IdEvent, Name, Description, BeginDate, EndDate, State) values ('{CountRows+1}', '{Tbxname.Text}','{TbxDesc.Text}','{FormattedBeginDate}','{FormattedEndDate}','Предстоящее')", Con);
+                string FormattedBeginDate, FormattedEndDate;
 
-            Con.Open();
-            Cmd.ExecuteNonQuery();
-            Con.Close();
+                if (LblId.Text != "NULL")
+                {
+                    string year1, month1, day1, year2, month2, day2;
+                    year2 = DateEnd.Split('/')[2];
+                    month2 = DateEnd.Split('/')[1];
+                    day2 = DateEnd.Split('/')[0];
+                    year1 = DateBeg.Split('/')[2];
+                    month1 = DateBeg.Split('/')[1];
+                    day1 = DateBeg.Split('/')[0];
 
-            TbxDesc.Text=Cmd.CommandText;
+                    SqlConnection Con = new SqlConnection(FormMain.TxtCon);
+                    FormattedBeginDate = DT.ToString($"{year1}/{month1}/{day1} {TbxBeginHour.Text}:00:00");
+                    if (CmbTimeBegin.SelectedIndex == 1)
+                        FormattedBeginDate = DT.ToString($"{year1}/{month1}/{day1} {int.Parse(TbxBeginHour.Text) + 12}:00:00");
+                    FormattedEndDate = DT.ToString($"{year2}/{month2}/{day2} {TbxEndHour.Text}:00:00");
+                    if (CmbTimeEnd.SelectedIndex == 1)
+                        FormattedEndDate = DT.ToString($"{year2}/{month2}/{day2} {int.Parse(TbxEndHour.Text) + 12}:00:00");
+
+                    if (TbxBeginHour.Text == "00" && TbxEndHour.Text == "00")
+                        FormattedEndDate = DT.ToString($"{year2}/{month2}/{day2} 01:00:00");
+
+                    if (CbxFullDay.Checked || TbxEndHour.Text == "12" && CmbTimeEnd.SelectedIndex == 1)
+                        FormattedEndDate = $"{year2}-{month2}-{int.Parse(day2) + 1}";
+
+                    SqlCommand Cmd = new SqlCommand($"update [Events] set Name='{Tbxname.Text}', Description='{TbxDesc.Text}', BeginDate='{FormattedBeginDate}', EndDate='{FormattedEndDate}' where IdEvent='{LblId.Text}'", Con);
+                    Con.Open();
+                    Cmd.ExecuteNonQuery();
+                    Con.Close();
+                    this.Close();
+                }
+                else
+                {
+                    string[] dateParts = LblDate.Text.Split('-');
+                    string day = dateParts[2];
+                    string month = dateParts[1];
+                    string year = dateParts[0];
+
+
+                    FormattedBeginDate = DT.ToString($"{LblDate.Text} {TbxBeginHour.Text}:00:00");
+                    if (CmbTimeBegin.SelectedIndex == 1)
+                        FormattedBeginDate = DT.ToString($"{LblDate.Text} {int.Parse(TbxBeginHour.Text) + 12}:00:00");
+                    FormattedEndDate = DT.ToString($"{LblDate.Text} {TbxEndHour.Text}:00:00");
+                    if (CmbTimeEnd.SelectedIndex == 1)
+                        FormattedEndDate = DT.ToString($"{LblDate.Text} {int.Parse(TbxEndHour.Text) + 12}:00:00");
+
+                    if (TbxBeginHour.Text == "00" && TbxEndHour.Text == "00")
+                        FormattedEndDate = DT.ToString($"{LblDate.Text} 01:00:00");
+                    // Сложно предусмотреть ввод TbxBeginHour < TbxEndHour что-то там складывать, писать. Устаф! Ну не то чтобы сложно, просто ленька...
+
+
+                    if (CbxFullDay.Checked || TbxEndHour.Text == "12" && CmbTimeEnd.SelectedIndex == 1)
+                        FormattedEndDate = $"{year}-{month}-{int.Parse(day) + 1}";
+
+                    SqlConnection Con = new SqlConnection(FormMain.TxtCon);
+
+                    SqlCommand Cmd = new SqlCommand($"insert into [Events] (IdEvent, Name, Description, BeginDate, EndDate, State) values ('{CountRows + 1}', '{Tbxname.Text}','{TbxDesc.Text}','{FormattedBeginDate}','{FormattedEndDate}','Предстоящее')", Con);
+
+                    Con.Open();
+                    Cmd.ExecuteNonQuery();
+                    Con.Close();
+
+                    this.Close();
+                }
+            }
+        }
+
+        private void Tbxname_Click(object sender, EventArgs e)
+        {
+            Tbxname.BorderColor = Color.White;
+        }
+
+        private void TbxDesc_Click(object sender, EventArgs e)
+        {
+            TbxDesc.BorderColor = Color.White;
+        }
+
+        int CurrTimeBeg, CurrTimeEnd;
+        string DateBeg, DateEnd;
+
+        private void DelEvent_Click(object sender, EventArgs e)
+        {
+            DialogResult DR;
+            if (Check.Text=="Check")
+            DR = MessageBox.Show("You seriously want to delete this event?","Delete accept", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            else DR = MessageBox.Show("Вы правда хотите удалить событие?", "Подтверждение удаления", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (DR == DialogResult.Yes)
+            {
+                SqlConnection Con = new SqlConnection(FormMain.TxtCon);
+
+                SqlCommand Cmd = new SqlCommand($"delete from [Events] where IdEvent='{LblId.Text}'", Con);
+
+                Con.Open();
+                Cmd.ExecuteNonQuery();
+                Con.Close();
+
+                this.Close();
+            }
+        }
+
+        private void FormAddEvent_Shown(object sender, EventArgs e)
+        {
+            this.ActiveControl = null;
+            if (LblId.Text != "NULL")
+            {
+                // Не нужно временно/нет
+                //if (CmbTimeBegin.SelectedIndex == 0)
+                //    CurrTimeBeg = int.Parse(TbxBeginHour.Text);
+                //else CurrTimeBeg = int.Parse(TbxBeginHour.Text) + 12;
+
+                //if (CmbTimeEnd.SelectedIndex == 0)
+                //    CurrTimeEnd = int.Parse(TbxEndHour.Text);
+                //else CurrTimeEnd= int.Parse(TbxEndHour.Text) + 12;
+
+                DateBeg = LblDate.Text.Split(' ')[0];
+                DateEnd = LblDate.Text.Split(' ')[3];
+            }
+            FormMain Frm= new FormMain();
+            if (Check.Text=="1")
+            {
+                label1.Text ="Название:";
+                label2.Text = "Описание:";
+                label3.Text = "Начало:";
+                label4.Text = "Окончание:";
+                CbxFullDay.Text = "Целый день";
+                TbxEndHour.Location = new Point(322, 328);
+                CmbTimeEnd.Location = new Point(364, 328);
+                label3.Location = new Point(42, 330);
+                if(LblId.Text=="NULL")
+                BtnAddEvent.Text = "Добавить событие";
+                else BtnAddEvent.Text = "Изменить событие";
+                DelEvent.Text = "Удалить событие";
+            }
         }
     }
 }

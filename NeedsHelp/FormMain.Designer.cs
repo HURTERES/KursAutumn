@@ -29,15 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            Guna.UI2.AnimatorNS.Animation animation2 = new Guna.UI2.AnimatorNS.Animation();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            Guna.UI2.AnimatorNS.Animation animation5 = new Guna.UI2.AnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.MiddleContainer = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.PanelData = new Guna.UI2.WinForms.Guna2Panel();
             this.LblInformation = new System.Windows.Forms.Label();
             this.DgvEvents = new System.Windows.Forms.DataGridView();
+            this.idEventDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.beginDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BsDate = new System.Windows.Forms.BindingSource(this.components);
+            this.dBKurs23DataSet = new NeedsHelp.DBKurs23DataSet();
             this.PanelDown = new Guna.UI2.WinForms.Guna2Panel();
             this.PanelCalendar = new Guna.UI2.WinForms.Guna2Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -60,27 +68,28 @@
             this.Show2SloiAnimated = new Guna.UI2.WinForms.Guna2Transition();
             this.CMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.добавитьСобытиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CMenuEdit = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.редактироватьСобытиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.dBKurs23DataSet = new NeedsHelp.DBKurs23DataSet();
-            this.BsDate = new System.Windows.Forms.BindingSource(this.components);
             this.eventsTableAdapter = new NeedsHelp.DBKurs23DataSetTableAdapters.EventsTableAdapter();
             this.tableAdapterManager = new NeedsHelp.DBKurs23DataSetTableAdapters.TableAdapterManager();
-            this.idEventDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.beginDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RusLanguage = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.Hide = new System.Windows.Forms.Label();
+            this.Org_Pro = new System.Windows.Forms.NotifyIcon(this.components);
             this.MiddleContainer.SuspendLayout();
             this.PanelData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvEvents)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BsDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBKurs23DataSet)).BeginInit();
+            this.PanelDown.SuspendLayout();
             this.PanelCalendar.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.CMenuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dBKurs23DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BsDate)).BeginInit();
+            this.CMenuEdit.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // MiddleContainer
@@ -117,9 +126,9 @@
             // 
             this.Show2SloiAnimated.SetDecoration(this.LblInformation, Guna.UI2.AnimatorNS.DecorationType.None);
             this.LblInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LblInformation.Location = new System.Drawing.Point(102, 509);
+            this.LblInformation.Location = new System.Drawing.Point(689, 543);
             this.LblInformation.Name = "LblInformation";
-            this.LblInformation.Size = new System.Drawing.Size(705, 100);
+            this.LblInformation.Size = new System.Drawing.Size(140, 100);
             this.LblInformation.TabIndex = 38;
             this.LblInformation.Text = "no upcoming events";
             this.LblInformation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -134,14 +143,14 @@
             this.DgvEvents.AutoGenerateColumns = false;
             this.DgvEvents.BackgroundColor = System.Drawing.Color.White;
             this.DgvEvents.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvEvents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvEvents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.DgvEvents.ColumnHeadersHeight = 30;
             this.DgvEvents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DgvEvents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -154,39 +163,99 @@
             this.DgvEvents.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DgvEvents.DataSource = this.BsDate;
             this.Show2SloiAnimated.SetDecoration(this.DgvEvents, Guna.UI2.AnimatorNS.DecorationType.None);
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvEvents.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvEvents.DefaultCellStyle = dataGridViewCellStyle14;
             this.DgvEvents.EnableHeadersVisualStyles = false;
             this.DgvEvents.GridColor = System.Drawing.Color.White;
             this.DgvEvents.Location = new System.Drawing.Point(3, 3);
             this.DgvEvents.MultiSelect = false;
             this.DgvEvents.Name = "DgvEvents";
             this.DgvEvents.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvEvents.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvEvents.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.DgvEvents.RowHeadersVisible = false;
             this.DgvEvents.RowTemplate.Height = 35;
             this.DgvEvents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvEvents.Size = new System.Drawing.Size(826, 640);
             this.DgvEvents.TabIndex = 37;
             this.DgvEvents.Leave += new System.EventHandler(this.DgvEvents_Leave);
+            this.DgvEvents.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DgvEvents_MouseClick);
+            // 
+            // idEventDataGridViewTextBoxColumn
+            // 
+            this.idEventDataGridViewTextBoxColumn.DataPropertyName = "IdEvent";
+            this.idEventDataGridViewTextBoxColumn.HeaderText = "IdEvent";
+            this.idEventDataGridViewTextBoxColumn.Name = "idEventDataGridViewTextBoxColumn";
+            this.idEventDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idEventDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Title";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // beginDateDataGridViewTextBoxColumn
+            // 
+            this.beginDateDataGridViewTextBoxColumn.DataPropertyName = "BeginDate";
+            this.beginDateDataGridViewTextBoxColumn.HeaderText = "BeginDate";
+            this.beginDateDataGridViewTextBoxColumn.Name = "beginDateDataGridViewTextBoxColumn";
+            this.beginDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.beginDateDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // endDateDataGridViewTextBoxColumn
+            // 
+            this.endDateDataGridViewTextBoxColumn.DataPropertyName = "EndDate";
+            this.endDateDataGridViewTextBoxColumn.HeaderText = "EndDate";
+            this.endDateDataGridViewTextBoxColumn.Name = "endDateDataGridViewTextBoxColumn";
+            this.endDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.endDateDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // stateDataGridViewTextBoxColumn
+            // 
+            this.stateDataGridViewTextBoxColumn.DataPropertyName = "State";
+            this.stateDataGridViewTextBoxColumn.HeaderText = "State";
+            this.stateDataGridViewTextBoxColumn.Name = "stateDataGridViewTextBoxColumn";
+            this.stateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.stateDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // BsDate
+            // 
+            this.BsDate.DataMember = "Events";
+            this.BsDate.DataSource = this.dBKurs23DataSet;
+            // 
+            // dBKurs23DataSet
+            // 
+            this.dBKurs23DataSet.DataSetName = "DBKurs23DataSet";
+            this.dBKurs23DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // PanelDown
             // 
             this.PanelDown.BackColor = System.Drawing.Color.White;
             this.PanelDown.BorderColor = System.Drawing.Color.Transparent;
+            this.PanelDown.Controls.Add(this.flowLayoutPanel1);
             this.Show2SloiAnimated.SetDecoration(this.PanelDown, Guna.UI2.AnimatorNS.DecorationType.None);
             this.PanelDown.Location = new System.Drawing.Point(12, 417);
             this.PanelDown.Name = "PanelDown";
@@ -219,10 +288,10 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.White;
             this.Show2SloiAnimated.SetDecoration(this.label5, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label5.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(151, 60);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(148, 58);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 23);
+            this.label5.Size = new System.Drawing.Size(37, 25);
             this.label5.TabIndex = 24;
             this.label5.Text = "Th";
             // 
@@ -230,7 +299,7 @@
             // 
             this.LblYearMonth.BackColor = System.Drawing.Color.White;
             this.Show2SloiAnimated.SetDecoration(this.LblYearMonth, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.LblYearMonth.Font = new System.Drawing.Font("Mongolian Baiti", 16F);
+            this.LblYearMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblYearMonth.Location = new System.Drawing.Point(52, 19);
             this.LblYearMonth.Name = "LblYearMonth";
             this.LblYearMonth.Size = new System.Drawing.Size(236, 32);
@@ -255,10 +324,10 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.White;
             this.Show2SloiAnimated.SetDecoration(this.label7, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label7.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(241, 60);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(238, 58);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(31, 23);
+            this.label7.Size = new System.Drawing.Size(38, 25);
             this.label7.TabIndex = 26;
             this.label7.Text = "Sa";
             // 
@@ -284,10 +353,10 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.White;
             this.Show2SloiAnimated.SetDecoration(this.label6, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label6.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(197, 60);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(194, 58);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 23);
+            this.label6.Size = new System.Drawing.Size(32, 25);
             this.label6.TabIndex = 25;
             this.label6.Text = "Fr";
             // 
@@ -314,10 +383,10 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
             this.Show2SloiAnimated.SetDecoration(this.label1, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label1.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(284, 60);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(281, 58);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 23);
+            this.label1.Size = new System.Drawing.Size(38, 25);
             this.label1.TabIndex = 20;
             this.label1.Text = "Su";
             // 
@@ -326,10 +395,10 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.White;
             this.Show2SloiAnimated.SetDecoration(this.label4, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label4.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(104, 60);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(101, 58);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 23);
+            this.label4.Size = new System.Drawing.Size(44, 25);
             this.label4.TabIndex = 23;
             this.label4.Text = "We";
             // 
@@ -338,10 +407,10 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
             this.Show2SloiAnimated.SetDecoration(this.label2, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label2.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(18, 60);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(15, 58);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 23);
+            this.label2.Size = new System.Drawing.Size(42, 25);
             this.label2.TabIndex = 21;
             this.label2.Text = "Mo";
             // 
@@ -350,10 +419,10 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.White;
             this.Show2SloiAnimated.SetDecoration(this.label3, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label3.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(64, 60);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(61, 58);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 23);
+            this.label3.Size = new System.Drawing.Size(37, 25);
             this.label3.TabIndex = 22;
             this.label3.Text = "Tu";
             // 
@@ -454,22 +523,22 @@
             // 
             this.Show2SloiAnimated.AnimationType = Guna.UI2.AnimatorNS.AnimationType.HorizSlide;
             this.Show2SloiAnimated.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 0F;
-            this.Show2SloiAnimated.DefaultAnimation = animation2;
+            animation5.AnimateOnlyDifferences = true;
+            animation5.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.BlindCoeff")));
+            animation5.LeafCoeff = 0F;
+            animation5.MaxTime = 1F;
+            animation5.MinTime = 0F;
+            animation5.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicCoeff")));
+            animation5.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicShift")));
+            animation5.MosaicSize = 0;
+            animation5.Padding = new System.Windows.Forms.Padding(0);
+            animation5.RotateCoeff = 0F;
+            animation5.RotateLimit = 0F;
+            animation5.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.ScaleCoeff")));
+            animation5.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.SlideCoeff")));
+            animation5.TimeCoeff = 0F;
+            animation5.TransparencyCoeff = 0F;
+            this.Show2SloiAnimated.DefaultAnimation = animation5;
             this.Show2SloiAnimated.Interval = 30;
             this.Show2SloiAnimated.MaxAnimationTime = 1000;
             this.Show2SloiAnimated.TimeStep = 0.05F;
@@ -480,14 +549,29 @@
             this.CMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.добавитьСобытиеToolStripMenuItem});
             this.CMenuStrip.Name = "CMenuStrip";
-            this.CMenuStrip.Size = new System.Drawing.Size(177, 26);
+            this.CMenuStrip.Size = new System.Drawing.Size(129, 26);
             this.CMenuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.CMenuStrip_ItemClicked);
             // 
             // добавитьСобытиеToolStripMenuItem
             // 
             this.добавитьСобытиеToolStripMenuItem.Name = "добавитьСобытиеToolStripMenuItem";
-            this.добавитьСобытиеToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.добавитьСобытиеToolStripMenuItem.Text = "Добавить событие";
+            this.добавитьСобытиеToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.добавитьСобытиеToolStripMenuItem.Text = "Add Event";
+            // 
+            // CMenuEdit
+            // 
+            this.Show2SloiAnimated.SetDecoration(this.CMenuEdit, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.CMenuEdit.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.редактироватьСобытиеToolStripMenuItem});
+            this.CMenuEdit.Name = "CMenuEdit";
+            this.CMenuEdit.Size = new System.Drawing.Size(127, 26);
+            this.CMenuEdit.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.CMenuEdit_ItemClicked);
+            // 
+            // редактироватьСобытиеToolStripMenuItem
+            // 
+            this.редактироватьСобытиеToolStripMenuItem.Name = "редактироватьСобытиеToolStripMenuItem";
+            this.редактироватьСобытиеToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.редактироватьСобытиеToolStripMenuItem.Text = "Edit Event";
             // 
             // guna2Elipse1
             // 
@@ -504,16 +588,6 @@
             this.guna2Elipse3.BorderRadius = 20;
             this.guna2Elipse3.TargetControl = this.PanelData;
             // 
-            // dBKurs23DataSet
-            // 
-            this.dBKurs23DataSet.DataSetName = "DBKurs23DataSet";
-            this.dBKurs23DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // BsDate
-            // 
-            this.BsDate.DataMember = "Events";
-            this.BsDate.DataSource = this.dBKurs23DataSet;
-            // 
             // eventsTableAdapter
             // 
             this.eventsTableAdapter.ClearBeforeFill = true;
@@ -524,53 +598,58 @@
             this.tableAdapterManager.EventsTableAdapter = this.eventsTableAdapter;
             this.tableAdapterManager.UpdateOrder = NeedsHelp.DBKurs23DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // idEventDataGridViewTextBoxColumn
+            // RusLanguage
             // 
-            this.idEventDataGridViewTextBoxColumn.DataPropertyName = "IdEvent";
-            this.idEventDataGridViewTextBoxColumn.HeaderText = "IdEvent";
-            this.idEventDataGridViewTextBoxColumn.Name = "idEventDataGridViewTextBoxColumn";
-            this.idEventDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idEventDataGridViewTextBoxColumn.Visible = false;
+            this.RusLanguage.CheckedState.BorderColor = System.Drawing.Color.Gray;
+            this.RusLanguage.CheckedState.BorderRadius = 0;
+            this.RusLanguage.CheckedState.BorderThickness = 0;
+            this.RusLanguage.CheckedState.FillColor = System.Drawing.Color.DarkSeaGreen;
+            this.Show2SloiAnimated.SetDecoration(this.RusLanguage, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.RusLanguage.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RusLanguage.ForeColor = System.Drawing.Color.Gray;
+            this.RusLanguage.Location = new System.Drawing.Point(19, 3);
+            this.RusLanguage.Name = "RusLanguage";
+            this.RusLanguage.Size = new System.Drawing.Size(197, 38);
+            this.RusLanguage.TabIndex = 0;
+            this.RusLanguage.Text = "Перевести язык";
+            this.RusLanguage.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.RusLanguage.UncheckedState.BorderRadius = 0;
+            this.RusLanguage.UncheckedState.BorderThickness = 0;
+            this.RusLanguage.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.RusLanguage.CheckedChanged += new System.EventHandler(this.RusLanguage_CheckedChanged);
             // 
-            // nameDataGridViewTextBoxColumn
+            // flowLayoutPanel1
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Title";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 150;
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Controls.Add(this.Hide);
+            this.flowLayoutPanel1.Controls.Add(this.RusLanguage);
+            this.Show2SloiAnimated.SetDecoration(this.flowLayoutPanel1, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 14);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(312, 44);
+            this.flowLayoutPanel1.TabIndex = 18;
             // 
-            // descriptionDataGridViewTextBoxColumn
+            // Hide
             // 
-            this.descriptionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Show2SloiAnimated.SetDecoration(this.Hide, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.Hide.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Hide.Location = new System.Drawing.Point(3, 0);
+            this.Hide.Name = "Hide";
+            this.Hide.Size = new System.Drawing.Size(10, 44);
+            this.Hide.TabIndex = 1;
             // 
-            // beginDateDataGridViewTextBoxColumn
+            // Org_Pro
             // 
-            this.beginDateDataGridViewTextBoxColumn.DataPropertyName = "BeginDate";
-            this.beginDateDataGridViewTextBoxColumn.HeaderText = "BeginDate";
-            this.beginDateDataGridViewTextBoxColumn.Name = "beginDateDataGridViewTextBoxColumn";
-            this.beginDateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.beginDateDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // endDateDataGridViewTextBoxColumn
-            // 
-            this.endDateDataGridViewTextBoxColumn.DataPropertyName = "EndDate";
-            this.endDateDataGridViewTextBoxColumn.HeaderText = "EndDate";
-            this.endDateDataGridViewTextBoxColumn.Name = "endDateDataGridViewTextBoxColumn";
-            this.endDateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.endDateDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // stateDataGridViewTextBoxColumn
-            // 
-            this.stateDataGridViewTextBoxColumn.DataPropertyName = "State";
-            this.stateDataGridViewTextBoxColumn.HeaderText = "State";
-            this.stateDataGridViewTextBoxColumn.Name = "stateDataGridViewTextBoxColumn";
-            this.stateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.stateDataGridViewTextBoxColumn.Visible = false;
+            this.Org_Pro.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.Org_Pro.ContextMenuStrip = this.CMenuStrip;
+            this.Org_Pro.Icon = ((System.Drawing.Icon)(resources.GetObject("Org_Pro.Icon")));
+            this.Org_Pro.Text = "Органайзер-Про";
+            this.Org_Pro.Visible = true;
+            this.Org_Pro.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
             // FormMain
             // 
@@ -583,16 +662,20 @@
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMain";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.MiddleContainer.ResumeLayout(false);
             this.PanelData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DgvEvents)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BsDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBKurs23DataSet)).EndInit();
+            this.PanelDown.ResumeLayout(false);
             this.PanelCalendar.ResumeLayout(false);
             this.PanelCalendar.PerformLayout();
             this.guna2Panel1.ResumeLayout(false);
             this.CMenuStrip.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dBKurs23DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BsDate)).EndInit();
+            this.CMenuEdit.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -637,5 +720,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn beginDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn endDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ContextMenuStrip CMenuEdit;
+        private System.Windows.Forms.ToolStripMenuItem редактироватьСобытиеToolStripMenuItem;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label Hide;
+        public Guna.UI2.WinForms.Guna2CheckBox RusLanguage;
+        private System.Windows.Forms.NotifyIcon Org_Pro;
     }
 }
