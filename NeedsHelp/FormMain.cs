@@ -456,15 +456,21 @@ namespace NeedsHelp
             ToolStripItem Item = e.ClickedItem;
             if (Item == добавитьСобытиеToolStripMenuItem)
             {
+                DateTime Today= DateTime.Now;
+                DateTime myDateTime = new DateTime(year, month, Day);
                 FormAddEvent Frm = new FormAddEvent();
                 Frm.LblDate.Text =$"{year}-{month}-{Day}";
                 if (RusLanguage.Checked)
                     Frm.Check.Text = "1";
-                Frm.ShowDialog();
-                this.eventsTableAdapter.Fill(this.dBKurs23DataSet.Events);
-                DgvEvents.ClearSelection();
-                if (DgvEvents.Rows.Count > 0)
-                    LblInformation.Visible = false;
+                if (Today < myDateTime)
+                {
+                    Frm.ShowDialog();
+                    this.eventsTableAdapter.Fill(this.dBKurs23DataSet.Events);
+                    DgvEvents.ClearSelection();
+                    if (DgvEvents.Rows.Count > 0)
+                        LblInformation.Visible = false;
+                }
+                else MessageBox.Show("Нельзя планировать события задним числом!");
             }
 
         }
