@@ -8,6 +8,7 @@ using System.Deployment.Application;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -72,7 +73,7 @@ namespace NeedsHelp
 
         private void FormAddEvent_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void TbxEndHour_TextChanged(object sender, EventArgs e)
@@ -218,6 +219,13 @@ namespace NeedsHelp
 
         int CurrTimeBeg, CurrTimeEnd;
         string DateBeg, DateEnd;
+
+        private void FormAddEvent_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Не работает anyway
+            //FormMain Frm = new FormMain();
+            //Frm.Org_Pro.Visible = false;
+        }
 
         private void DelEvent_Click(object sender, EventArgs e)
         {

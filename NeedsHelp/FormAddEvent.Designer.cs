@@ -29,8 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddEvent));
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.PanelDown = new Guna.UI2.WinForms.Guna2Panel();
+            this.Check = new System.Windows.Forms.Label();
+            this.DelEvent = new System.Windows.Forms.Button();
+            this.LblId = new System.Windows.Forms.Label();
             this.LblLength = new System.Windows.Forms.Label();
             this.BtnAddEvent = new System.Windows.Forms.Button();
             this.CbxFullDay = new System.Windows.Forms.CheckBox();
@@ -51,9 +55,6 @@
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.CMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.добавитьСобытиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.LblId = new System.Windows.Forms.Label();
-            this.DelEvent = new System.Windows.Forms.Button();
-            this.Check = new System.Windows.Forms.Label();
             this.PanelDown.SuspendLayout();
             this.CMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -88,10 +89,46 @@
             this.PanelDown.Controls.Add(this.panel1);
             this.PanelDown.Controls.Add(this.LblDate);
             this.PanelDown.Controls.Add(this.label1);
-            this.PanelDown.Location = new System.Drawing.Point(0, -2);
+            this.PanelDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelDown.Location = new System.Drawing.Point(0, 0);
             this.PanelDown.Name = "PanelDown";
-            this.PanelDown.Size = new System.Drawing.Size(623, 399);
+            this.PanelDown.Size = new System.Drawing.Size(624, 398);
             this.PanelDown.TabIndex = 31;
+            // 
+            // Check
+            // 
+            this.Check.AutoSize = true;
+            this.Check.Location = new System.Drawing.Point(269, 11);
+            this.Check.Name = "Check";
+            this.Check.Size = new System.Drawing.Size(38, 13);
+            this.Check.TabIndex = 77;
+            this.Check.Text = "Check";
+            this.Check.Visible = false;
+            // 
+            // DelEvent
+            // 
+            this.DelEvent.BackColor = System.Drawing.Color.Brown;
+            this.DelEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DelEvent.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DelEvent.ForeColor = System.Drawing.Color.White;
+            this.DelEvent.Location = new System.Drawing.Point(27, 358);
+            this.DelEvent.Name = "DelEvent";
+            this.DelEvent.Size = new System.Drawing.Size(185, 28);
+            this.DelEvent.TabIndex = 76;
+            this.DelEvent.Text = "Delete Event";
+            this.DelEvent.UseVisualStyleBackColor = false;
+            this.DelEvent.Visible = false;
+            this.DelEvent.Click += new System.EventHandler(this.DelEvent_Click);
+            // 
+            // LblId
+            // 
+            this.LblId.AutoSize = true;
+            this.LblId.Location = new System.Drawing.Point(347, 13);
+            this.LblId.Name = "LblId";
+            this.LblId.Size = new System.Drawing.Size(35, 13);
+            this.LblId.TabIndex = 75;
+            this.LblId.Text = "NULL";
+            this.LblId.Visible = false;
             // 
             // LblLength
             // 
@@ -358,41 +395,6 @@
             this.добавитьСобытиеToolStripMenuItem.Text = "Не все поля заполнены";
             this.добавитьСобытиеToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // LblId
-            // 
-            this.LblId.AutoSize = true;
-            this.LblId.Location = new System.Drawing.Point(347, 13);
-            this.LblId.Name = "LblId";
-            this.LblId.Size = new System.Drawing.Size(35, 13);
-            this.LblId.TabIndex = 75;
-            this.LblId.Text = "NULL";
-            this.LblId.Visible = false;
-            // 
-            // DelEvent
-            // 
-            this.DelEvent.BackColor = System.Drawing.Color.Brown;
-            this.DelEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DelEvent.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DelEvent.ForeColor = System.Drawing.Color.White;
-            this.DelEvent.Location = new System.Drawing.Point(27, 361);
-            this.DelEvent.Name = "DelEvent";
-            this.DelEvent.Size = new System.Drawing.Size(185, 28);
-            this.DelEvent.TabIndex = 76;
-            this.DelEvent.Text = "Delete Event";
-            this.DelEvent.UseVisualStyleBackColor = false;
-            this.DelEvent.Visible = false;
-            this.DelEvent.Click += new System.EventHandler(this.DelEvent_Click);
-            // 
-            // Check
-            // 
-            this.Check.AutoSize = true;
-            this.Check.Location = new System.Drawing.Point(269, 11);
-            this.Check.Name = "Check";
-            this.Check.Size = new System.Drawing.Size(38, 13);
-            this.Check.TabIndex = 77;
-            this.Check.Text = "Check";
-            this.Check.Visible = false;
-            // 
             // FormAddEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,9 +402,11 @@
             this.ClientSize = new System.Drawing.Size(624, 398);
             this.Controls.Add(this.PanelDown);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAddEvent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormAddEvent";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormAddEvent_FormClosing);
             this.Load += new System.EventHandler(this.FormAddEvent_Load);
             this.Shown += new System.EventHandler(this.FormAddEvent_Shown);
             this.PanelDown.ResumeLayout(false);
@@ -438,5 +442,6 @@
         public System.Windows.Forms.CheckBox CbxFullDay;
         public System.Windows.Forms.Button BtnAddEvent;
         public System.Windows.Forms.Label Check;
+        private System.Windows.Forms.NotifyIcon notifier;
     }
 }

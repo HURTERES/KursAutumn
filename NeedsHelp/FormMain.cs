@@ -10,10 +10,12 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
 using Guna.UI2.WinForms.Suite;
+using Tulpep.NotificationWindow;
 
 namespace NeedsHelp
 {
@@ -28,12 +30,9 @@ namespace NeedsHelp
         private void InitializeContextMenu()
         {
             ContextMenuStrip contextMenu = new ContextMenuStrip();
-
             ToolStripMenuItem exitMenuItem = new ToolStripMenuItem("Exit");
             exitMenuItem.Click += new EventHandler(exitMenuItem_Click);
-
             contextMenu.Items.Add(exitMenuItem);
-
             Org_Pro.ContextMenuStrip = contextMenu;
         }
 
@@ -88,11 +87,7 @@ namespace NeedsHelp
                 Con.Open();
                 SqlDataReader Res = Cmd.ExecuteReader();
                 Res.Read();
-                if (Res.HasRows)
-                {
-                   // LblName.Text = Res["Name"].ToString();
-                   // LblID.Text = "ID сотрудника: " + (Res["IdPredp"].ToString());
-                }
+                if (Res.HasRows) { }
                 else LblInformation.Visible = true;
                 Con.Close();
             }
@@ -110,6 +105,29 @@ namespace NeedsHelp
             DgvEvents.ClearSelection();
         }
 
+        void ShowPopup()
+        {
+            PopupNotifier popup = new PopupNotifier();
+            popup.Size = new Size(460, 100);
+            popup.Image = Properties.Resources.WhiteBook;
+            popup.ImageSize = new Size(96, 96);
+            popup.TitleColor = Color.Gray;
+            popup.ShowGrip = false;
+            popup.GradientPower = 100;
+            popup.TitleFont = new System.Drawing.Font("Arial", 14);
+            popup.ContentFont = new System.Drawing.Font("Arial", 14);
+            popup.TitlePadding = new Padding(10, 10, 10, 0);
+            popup.ContentPadding = new Padding(10);
+            popup.ContentColor = Color.DarkGreen;
+            popup.HeaderColor = Color.Gray;
+            popup.BorderColor = Color.Gray;
+            popup.BodyColor = Color.White;
+            popup.ShowCloseButton = false;
+            popup.TitleText = "Поступила информация о событии:";
+            popup.ContentText = $"Событие {(DgvEvents.Rows[0].Cells[1].Value.ToString()).Substring(0,9)}... завершено!";
+            popup.Popup();
+        }
+
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -120,20 +138,10 @@ namespace NeedsHelp
             this.WindowState = FormWindowState.Minimized;
             if (WindowState == FormWindowState.Minimized)
             {
-               // ShowInTaskbar = false;
-                Org_Pro.Visible = true;
+                
+                 // ShowInTaskbar = false;
             }
         }
-
-        private void BtnFullScreen_Click(object sender, EventArgs e)
-        {
-     
-        }
-
-
-
-
-
 
         Stopwatch st = new Stopwatch();
         MouseButtons mb = MouseButtons.None;
@@ -332,6 +340,8 @@ namespace NeedsHelp
                 Frm.DelEvent.Visible = true;
                 if (RusLanguage.Checked)
                     Frm.Check.Text ="1";
+                Frm.BtnAddEvent.Text = "Edit event";
+
                 Frm.ShowDialog();
                 this.eventsTableAdapter.Fill(this.dBKurs23DataSet.Events);
                 DgvEvents.ClearSelection();
@@ -343,16 +353,75 @@ namespace NeedsHelp
 
         string IdEvent,NameEvent,Desc,BeginDate,EndDate, Beg, End;
 
+        private void FormMain_Shown(object sender, EventArgs e)
+        {
+            TimerAlarm.Enabled = true;
+        }
+
+        class NamesFromDgv
+        {
+            //public string Name;
+
+        }
+
+        private void TimerAlarm_Tick(object sender, EventArgs e)
+        {
+            if (DgvEvents.Rows.Count > 0)
+            {
+                string Name;
+                //for (int i = 0; i < DgvEvents.Rows.Count-1;i++)
+                //{
+
+                //}
+                if (DgvEvents.Rows[0].Cells[1].Value.ToString().Length > 8)
+                    Name = ((DgvEvents.Rows[0].Cells[1].Value.ToString()).Substring(0, 9))+"...";
+                else Name = DgvEvents.Rows[0].Cells[1].Value.ToString();
+                PopupNotifier popup = new PopupNotifier();
+                popup.Size = new Size(460, 100);
+                popup.Image = Properties.Resources.WhiteBook;
+                popup.ImageSize = new Size(96, 96);
+                popup.TitleColor = Color.Gray;
+                popup.ShowGrip = false;
+                popup.GradientPower = 100;
+                popup.TitleFont = new System.Drawing.Font("Arial", 14);
+                popup.ContentFont = new System.Drawing.Font("Arial", 14);
+                popup.TitlePadding = new Padding(10, 10, 10, 0);
+                popup.ContentPadding = new Padding(10);
+                popup.ContentColor = Color.DarkGreen;
+                popup.HeaderColor = Color.Gray;
+                popup.BorderColor = Color.Gray;
+                popup.BodyColor = Color.White;
+                popup.ShowCloseButton = false;
+                popup.TitleText = "Поступила информация о событии:";
+                popup.ContentText = $"Событие {Name} завершено!";
+                popup.Popup();
+            }
+        }
+
+        private void FormMain_Resize(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Minimized)
+            {
+                ShowIcon = true;
+                Org_Pro.Visible = true;
+            }
+            else
+            {
+                ShowIcon = true;
+                Org_Pro.Visible = false;
+            }
+        }
+
+
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
-            {
-                Org_Pro.Visible = true;
-                e.Cancel = true;
+            //if (e.CloseReason == CloseReason.UserClosing)
+            //{
+            //    Org_Pro.Visible = true;
+            //    e.Cancel = true;
 
-                this.Hide();
-            }
-
+            //    this.Hide();
+            //}
         }
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -412,6 +481,8 @@ namespace NeedsHelp
                 DgvEvents.Columns[3].HeaderText = "Дата начала";
                 DgvEvents.Columns[4].HeaderText = "Дата окончания";
                 LblInformation.Text = "Нет предстоящих событий";
+                CMenuStrip.Items[0].Text = "Добавить событие";
+                CMenuEdit.Items[0].Text = "Редактировать событие";
             }
             else
             {
@@ -429,6 +500,8 @@ namespace NeedsHelp
                 DgvEvents.Columns[3].HeaderText = "BeginDate";
                 DgvEvents.Columns[4].HeaderText = "EndDate";
                 LblInformation.Text = "no upcoming events";
+                CMenuStrip.Items[0].Text = "Add event";
+                CMenuEdit.Items[0].Text = "Edit event";
             }
 
         }

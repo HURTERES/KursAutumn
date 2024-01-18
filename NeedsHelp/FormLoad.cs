@@ -79,5 +79,6 @@ namespace NeedsHelp
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
     }
 }
