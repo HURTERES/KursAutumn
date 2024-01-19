@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddEvent));
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.PanelDown = new Guna.UI2.WinForms.Guna2Panel();
+            this.CbxDaily = new System.Windows.Forms.CheckBox();
             this.Check = new System.Windows.Forms.Label();
             this.DelEvent = new System.Windows.Forms.Button();
             this.LblId = new System.Windows.Forms.Label();
@@ -55,6 +56,7 @@
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.CMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.добавитьСобытиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FindSymbols = new System.Windows.Forms.Timer(this.components);
             this.PanelDown.SuspendLayout();
             this.CMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +71,7 @@
             this.PanelDown.BackColor = System.Drawing.Color.Transparent;
             this.PanelDown.BorderColor = System.Drawing.Color.Gray;
             this.PanelDown.BorderThickness = 1;
+            this.PanelDown.Controls.Add(this.CbxDaily);
             this.PanelDown.Controls.Add(this.Check);
             this.PanelDown.Controls.Add(this.DelEvent);
             this.PanelDown.Controls.Add(this.LblId);
@@ -89,11 +92,21 @@
             this.PanelDown.Controls.Add(this.panel1);
             this.PanelDown.Controls.Add(this.LblDate);
             this.PanelDown.Controls.Add(this.label1);
-            this.PanelDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelDown.Location = new System.Drawing.Point(0, 0);
             this.PanelDown.Name = "PanelDown";
-            this.PanelDown.Size = new System.Drawing.Size(624, 398);
+            this.PanelDown.Size = new System.Drawing.Size(623, 397);
             this.PanelDown.TabIndex = 31;
+            // 
+            // CbxDaily
+            // 
+            this.CbxDaily.AutoSize = true;
+            this.CbxDaily.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CbxDaily.Location = new System.Drawing.Point(540, 330);
+            this.CbxDaily.Name = "CbxDaily";
+            this.CbxDaily.Size = new System.Drawing.Size(59, 22);
+            this.CbxDaily.TabIndex = 78;
+            this.CbxDaily.Text = "Daily";
+            this.CbxDaily.UseVisualStyleBackColor = true;
             // 
             // Check
             // 
@@ -158,7 +171,7 @@
             // 
             this.CbxFullDay.AutoSize = true;
             this.CbxFullDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CbxFullDay.Location = new System.Drawing.Point(450, 330);
+            this.CbxFullDay.Location = new System.Drawing.Point(414, 330);
             this.CbxFullDay.Name = "CbxFullDay";
             this.CbxFullDay.Size = new System.Drawing.Size(121, 22);
             this.CbxFullDay.TabIndex = 53;
@@ -395,6 +408,10 @@
             this.добавитьСобытиеToolStripMenuItem.Text = "Не все поля заполнены";
             this.добавитьСобытиеToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // FindSymbols
+            // 
+            this.FindSymbols.Tick += new System.EventHandler(this.FindSymbols_Tick);
+            // 
             // FormAddEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -443,5 +460,7 @@
         public System.Windows.Forms.Button BtnAddEvent;
         public System.Windows.Forms.Label Check;
         private System.Windows.Forms.NotifyIcon notifier;
+        public System.Windows.Forms.CheckBox CbxDaily;
+        private System.Windows.Forms.Timer FindSymbols;
     }
 }

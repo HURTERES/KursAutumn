@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Guna.UI2.WinForms;
 using Guna.UI2.WinForms.Suite;
 using Tulpep.NotificationWindow;
@@ -83,7 +84,7 @@ namespace NeedsHelp
             try
             {
                 SqlConnection Con = new SqlConnection(TxtCon);
-                SqlCommand Cmd = new SqlCommand($"SELECT * from Events where State='Предстоящее'", Con);
+                SqlCommand Cmd = new SqlCommand($"SELECT * from Events where State='Предстоящее' or State='Ежедневное'", Con);
                 Con.Open();
                 SqlDataReader Res = Cmd.ExecuteReader();
                 Res.Read();
@@ -103,29 +104,6 @@ namespace NeedsHelp
             DgvEvents.AllowUserToResizeColumns = false;
             FillForm();
             DgvEvents.ClearSelection();
-        }
-
-        void ShowPopup()
-        {
-            PopupNotifier popup = new PopupNotifier();
-            popup.Size = new Size(460, 100);
-            popup.Image = Properties.Resources.WhiteBook;
-            popup.ImageSize = new Size(96, 96);
-            popup.TitleColor = Color.Gray;
-            popup.ShowGrip = false;
-            popup.GradientPower = 100;
-            popup.TitleFont = new System.Drawing.Font("Arial", 14);
-            popup.ContentFont = new System.Drawing.Font("Arial", 14);
-            popup.TitlePadding = new Padding(10, 10, 10, 0);
-            popup.ContentPadding = new Padding(10);
-            popup.ContentColor = Color.DarkGreen;
-            popup.HeaderColor = Color.Gray;
-            popup.BorderColor = Color.Gray;
-            popup.BodyColor = Color.White;
-            popup.ShowCloseButton = false;
-            popup.TitleText = "Поступила информация о событии:";
-            popup.ContentText = $"Событие {(DgvEvents.Rows[0].Cells[1].Value.ToString()).Substring(0,9)}... завершено!";
-            popup.Popup();
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
@@ -312,6 +290,8 @@ namespace NeedsHelp
                 Frm.LblDate.Text = $"{BeginDate} - {EndDate}";
                 Frm.Tbxname.Text = $"{NameEvent}" ;
                 Frm.TbxDesc.Text = $"{Desc}";
+                if(State=="Ежедневное")
+                    Frm.CbxDaily.Checked = true ;
                 //Frm.TbxBeginHour.Text = 
                 Beg = BeginDate.Split(' ')[1];
                 string Beg1 = Beg[0].ToString();
@@ -351,51 +331,130 @@ namespace NeedsHelp
             }
         }
 
-        string IdEvent,NameEvent,Desc,BeginDate,EndDate, Beg, End;
+        string IdEvent,NameEvent,Desc,BeginDate,EndDate, Beg, End, State;
 
         private void FormMain_Shown(object sender, EventArgs e)
         {
             TimerAlarm.Enabled = true;
         }
 
-        class NamesFromDgv
-        {
-            //public string Name;
-
-        }
 
         private void TimerAlarm_Tick(object sender, EventArgs e)
         {
             if (DgvEvents.Rows.Count > 0)
             {
                 string Name;
-                //for (int i = 0; i < DgvEvents.Rows.Count-1;i++)
-                //{
+                string FormattedBeginDate, FormattedEndDate;
+                DateTime DateNow= DateTime.Now;
+                for (int i = 0; i < DgvEvents.Rows.Count;i++)
+                {
+                    string TimeBegin = (DgvEvents.Rows[i].Cells[3].Value.ToString());
+                    DateTime TimeBegin1 = DateTime.Parse(DgvEvents.Rows[i].Cells[3].Value.ToString());
+                    string TimeEnd = (DgvEvents.Rows[i].Cells[4].Value.ToString());
+                    DateTime TimeEnd1 = DateTime.Parse(DgvEvents.Rows[i].Cells[4].Value.ToString());
+                    // Сравнить дату из (DateNow >= DateTime.Parse(DgvEvents.Rows[i].Cells[4].Value.ToString())) с текущим днем, записать в переменную DateTime TimeBegin текущий день и добавить +1
+                    string year1, month1, day1, year2, month2, day2, hour1, hour2;
+                    year2 = TimeEnd.Split('/')[2];
+                    year2 = year2.Split(' ')[0];
+                    month2 = TimeEnd.Split('/')[1];
+                    day2 = TimeEnd.Split('/')[0];
+                    year1 = TimeBegin.Split('/')[2];
+                    year1 = year1.Split(' ')[0];
+                    month1 = TimeBegin.Split('/')[1];
+                    day1 = TimeBegin.Split('/')[0];
+                    hour1 = TimeBegin.Split(' ')[1];
+                    hour2 = TimeEnd.Split(' ')[1];
 
-                //}
-                if (DgvEvents.Rows[0].Cells[1].Value.ToString().Length > 8)
-                    Name = ((DgvEvents.Rows[0].Cells[1].Value.ToString()).Substring(0, 9))+"...";
-                else Name = DgvEvents.Rows[0].Cells[1].Value.ToString();
-                PopupNotifier popup = new PopupNotifier();
-                popup.Size = new Size(460, 100);
-                popup.Image = Properties.Resources.WhiteBook;
-                popup.ImageSize = new Size(96, 96);
-                popup.TitleColor = Color.Gray;
-                popup.ShowGrip = false;
-                popup.GradientPower = 100;
-                popup.TitleFont = new System.Drawing.Font("Arial", 14);
-                popup.ContentFont = new System.Drawing.Font("Arial", 14);
-                popup.TitlePadding = new Padding(10, 10, 10, 0);
-                popup.ContentPadding = new Padding(10);
-                popup.ContentColor = Color.DarkGreen;
-                popup.HeaderColor = Color.Gray;
-                popup.BorderColor = Color.Gray;
-                popup.BodyColor = Color.White;
-                popup.ShowCloseButton = false;
-                popup.TitleText = "Поступила информация о событии:";
-                popup.ContentText = $"Событие {Name} завершено!";
-                popup.Popup();
+                    if (DateNow >= TimeBegin1)
+                    {
+                        day1 = DateNow.Day.ToString();
+                        day1 = (int.Parse(day1) + 1).ToString();
+                    }
+
+                    if (DateNow >= TimeEnd1)
+                    {
+                        day2 = DateNow.Day.ToString();
+                        day2 = (int.Parse(day2) + 1).ToString();
+                    }
+
+
+                    FormattedBeginDate = DateNow.ToString($"{year1}/{month1}/{day1} {hour1}");
+                    FormattedEndDate = DateNow.ToString($"{year2}/{month2}/{day2} {hour2}");
+
+                    if (DgvEvents.Rows[i].Cells[1].Value.ToString().Length > 8)
+                            Name = ((DgvEvents.Rows[i].Cells[1].Value.ToString()).Substring(0, 9)) + "...";
+                        else Name = DgvEvents.Rows[i].Cells[1].Value.ToString();
+                        PopupNotifier popup = new PopupNotifier();
+                        popup.Size = new Size(460, 100);
+                        popup.Image = Properties.Resources.WhiteBook;
+                        popup.ImageSize = new Size(96, 96);
+                        popup.TitleColor = Color.Gray;
+                        popup.ShowGrip = false;
+                        popup.GradientPower = 100;
+                        popup.TitleFont = new System.Drawing.Font("Arial", 14);
+                        popup.ContentFont = new System.Drawing.Font("Arial", 14);
+                        popup.TitlePadding = new Padding(10, 10, 10, 0);
+                        popup.ContentPadding = new Padding(10);
+                        popup.ContentColor = Color.DarkGreen;
+                        popup.HeaderColor = Color.Gray;
+                        popup.BorderColor = Color.Gray;
+                        popup.BodyColor = Color.White;
+                        popup.ShowCloseButton = false;
+
+
+                        SqlCommand Cmd = new SqlCommand();
+
+                        SqlConnection Con = new SqlConnection(TxtCon);
+                    if (DgvEvents.Rows[i].Cells[5].Value.ToString() == "Ежедневное" && DateNow >= DateTime.Parse(TimeEnd))
+                    {
+                        System.Media.SoundPlayer player = new System.Media.SoundPlayer(Application.StartupPath + "\\Sound\\audio-editor-output.wav");
+                        if (RusLanguage.Checked)
+                        {
+                            popup.TitleText = "Поступила информация о событии:";
+                            popup.ContentText = $"Событие {Name} завершено!";
+                        }
+                        else
+                        {
+                            popup.TitleText = "New information about event:";
+                            popup.ContentText = $"Event {Name} completed!";
+                        }
+                        player.Play();
+                        popup.Popup();
+
+                        Cmd = new SqlCommand($"update [Events] set BeginDate='{FormattedBeginDate}', EndDate='{FormattedEndDate}' where IdEvent='{DgvEvents.Rows[i].Cells[0].Value}'", Con);
+                        Con.Open();
+                        Cmd.ExecuteNonQuery();
+                        Con.Close();
+                    }
+                    else if (DateNow >= DateTime.Parse(TimeEnd))
+                    {
+                        System.Media.SoundPlayer player = new System.Media.SoundPlayer(Application.StartupPath + "\\Sound\\audio-editor-output.wav");
+                        player.Play();
+                        popup.Popup();
+                        Cmd = new SqlCommand($"delete from [Events] where IdEvent='{DgvEvents.Rows[i].Cells[0].Value}'", Con);
+                        Con.Open();
+                        Cmd.ExecuteNonQuery();
+                        Con.Close();
+                        if (RusLanguage.Checked)
+                        {
+                            popup.TitleText = "Поступила информация о событии:";
+                            popup.ContentText = $"Событие {Name} завершено!";
+                        }
+                        else
+                        {
+                            popup.TitleText = "New information about event:";
+                            popup.ContentText = $"Event {Name} completed!";
+                        }
+                        player.Play();
+                        popup.Popup();
+                    }
+                    else { }
+                }    
             }
+
+            this.eventsTableAdapter.Fill(this.dBKurs23DataSet.Events);
+            this.eventsTableAdapter.Update(this.dBKurs23DataSet.Events);
+            DgvEvents.ClearSelection();
         }
 
         private void FormMain_Resize(object sender, EventArgs e)
@@ -437,7 +496,7 @@ namespace NeedsHelp
             {
                 FormAddEvent Frm = new FormAddEvent();
                 Frm.label1.Text = "Название события: ";
-
+                
                 LblInformation.Text = "Нет предстоящих событий";
                 string monthName = DateTimeFormatInfo.CurrentInfo.MonthNames[month - 1];
                 if (RusLanguage.Checked)
@@ -483,6 +542,7 @@ namespace NeedsHelp
                 LblInformation.Text = "Нет предстоящих событий";
                 CMenuStrip.Items[0].Text = "Добавить событие";
                 CMenuEdit.Items[0].Text = "Редактировать событие";
+                BtnManual.Text = "Руководство пользователя";
             }
             else
             {
@@ -500,6 +560,7 @@ namespace NeedsHelp
                 DgvEvents.Columns[3].HeaderText = "BeginDate";
                 DgvEvents.Columns[4].HeaderText = "EndDate";
                 LblInformation.Text = "no upcoming events";
+                BtnManual.Text = "User manual";
                 CMenuStrip.Items[0].Text = "Add event";
                 CMenuEdit.Items[0].Text = "Edit event";
             }
@@ -519,6 +580,7 @@ namespace NeedsHelp
                     Desc = DgvEvents.Rows[currentMouseOverRow].Cells["descriptionDataGridViewTextBoxColumn"].Value.ToString();
                     BeginDate = DgvEvents.Rows[currentMouseOverRow].Cells["beginDateDataGridViewTextBoxColumn"].Value.ToString();
                     EndDate = DgvEvents.Rows[currentMouseOverRow].Cells["endDateDataGridViewTextBoxColumn"].Value.ToString();
+                    State = DgvEvents.Rows[currentMouseOverRow].Cells["stateDataGridViewTextBoxColumn"].Value.ToString();
                     CMenuEdit.Show(mouseArgs);
                 }
             }
