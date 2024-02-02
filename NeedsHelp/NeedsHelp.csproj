@@ -36,12 +36,19 @@
     <ApplicationIcon>Logo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.5, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.5\lib\net48\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -68,6 +75,12 @@
     </Compile>
     <Compile Include="FormAddEvent.Designer.cs">
       <DependentUpon>FormAddEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEndedList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEndedList.Designer.cs">
+      <DependentUpon>FormEndedList.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLoad.cs">
       <SubType>Form</SubType>
@@ -97,6 +110,9 @@
     </Compile>
     <EmbeddedResource Include="FormAddEvent.resx">
       <DependentUpon>FormAddEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEndedList.resx">
+      <DependentUpon>FormEndedList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLoad.resx">
       <DependentUpon>FormLoad.cs</DependentUpon>

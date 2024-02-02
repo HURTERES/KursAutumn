@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ExcelDataReader;
 using Guna;
 using Guna.UI2.WinForms;
 
@@ -45,6 +47,7 @@ namespace NeedsHelp
         {
             TimerLoad.Start();
             TimerFon.Start();
+            
         }
 
         private void TimerLoad_Tick(object sender, EventArgs e)
@@ -64,8 +67,8 @@ namespace NeedsHelp
         {
             TimerFon.Stop();
             TimerLoad.Stop();
-            FormMain Frm = new FormMain();
             this.Hide();
+            FormMain Frm = new FormMain();
             Frm.ShowDialog();
             this.Close();
             //Show2SloiAnimated.Show(TbxLogin); для показа анимации))

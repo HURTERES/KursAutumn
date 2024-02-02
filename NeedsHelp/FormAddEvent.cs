@@ -31,7 +31,7 @@ namespace NeedsHelp
             CmbTimeEnd.SelectedIndex = 0;
 
             SqlConnection Con = new SqlConnection(FormMain.TxtCon);
-            SqlCommand Cmd = new SqlCommand($"SELECT * from Events where State='Предстоящее' or State='Ежедневное'", Con);
+            SqlCommand Cmd = new SqlCommand($"SELECT * from Events", Con);
             Con.Open();
             SqlDataReader Res = Cmd.ExecuteReader();
             Res.Read();
@@ -155,8 +155,12 @@ namespace NeedsHelp
                     month1 = DateBeg.Split('/')[1];
                     day1 = DateBeg.Split('/')[0];
 
+                    // Для сравнения последнего дня данного месяца
+                    //DateTime createDate = new DateTime(int.Parse(month2.Substring(1,month2.Length-1)), int.Parse(day2),
+                    //                  DateTime.DaysInMonth(int.Parse(month2.Substring(1, month2.Length - 1)), int.Parse(day2)));
 
-                    if ((((int.Parse(TbxBeginHour.Text) > int.Parse(TbxEndHour.Text)) && CmbTimeBegin.SelectedIndex == 0 && CmbTimeEnd.SelectedIndex==0) && TbxBeginHour.Text != "00" && TbxEndHour.Text != "00") ||
+
+                    if ((((int.Parse(TbxBeginHour.Text) >= int.Parse(TbxEndHour.Text)) && CmbTimeBegin.SelectedIndex == 0 && CmbTimeEnd.SelectedIndex==0) && TbxBeginHour.Text != "00") ||
                         ((int.Parse(TbxBeginHour.Text) >= int.Parse(TbxEndHour.Text)) && CmbTimeBegin.SelectedIndex == 1 && CmbTimeEnd.SelectedIndex == 0) ||
                         ((int.Parse(TbxBeginHour.Text) >= int.Parse(TbxEndHour.Text)) && CmbTimeBegin.SelectedIndex == 1 && CmbTimeEnd.SelectedIndex == 1))
                     {
@@ -183,6 +187,20 @@ namespace NeedsHelp
                     if (CbxFullDay.Checked || TbxEndHour.Text == "12" && CmbTimeEnd.SelectedIndex == 1)
                         FormattedEndDate = $"{year2}-{month2}-{int.Parse(day2) + 1}";
 
+                    if (int.Parse(day2) == DateTime.DaysInMonth(int.Parse(year2), int.Parse(month2)) && CbxFullDay.Checked == true || int.Parse(day2) == DateTime.DaysInMonth(int.Parse(year2), int.Parse(month2)) && TbxEndHour.Text == "12" && CmbTimeEnd.SelectedIndex == 1)
+                    {
+                        FormattedEndDate = $"{year2}-{int.Parse(month2) + 1}-{1}";
+                        if (int.Parse(month2) == 12)
+                            FormattedEndDate = $"{int.Parse(year2) + 1}-{1}-{1}";
+                    }
+
+
+                    //if (TbxEndHour.Text == "11" && CmbTimeEnd.SelectedIndex == 1 && TbxBeginHour.Text == "11" && CmbTimeBegin.SelectedIndex == 1)
+                    //{
+                    //    FormattedEndDate = $"{year2}-{month2}-{int.Parse(day2) + 1}";
+                    //    TbxEndHour.Text = "12";
+                    //}
+
                     SqlCommand Cmd = new SqlCommand();
                     if (CbxDaily.Checked)
                         Cmd = new SqlCommand($"update [Events] set Name='{Tbxname.Text}', Description='{TbxDesc.Text}', BeginDate='{FormattedBeginDate}', EndDate='{FormattedEndDate}', State='{"Ежедневное"}' where IdEvent='{LblId.Text}'", Con);
@@ -196,11 +214,11 @@ namespace NeedsHelp
                 else
                 {
                     string[] dateParts = LblDate.Text.Split('-');
-                    string day = dateParts[2];
-                    string month = dateParts[1];
-                    string year = dateParts[0];
+                    int day = int.Parse(dateParts[2]);
+                    int month = int.Parse(dateParts[1]);
+                    int year = int.Parse(dateParts[0]);
 
-                    if ((((int.Parse(TbxBeginHour.Text) >= int.Parse(TbxEndHour.Text)) && CmbTimeBegin.SelectedIndex == 0 && CmbTimeEnd.SelectedIndex == 0) && TbxBeginHour.Text != "00" && TbxEndHour.Text != "00") ||
+                    if ((((int.Parse(TbxBeginHour.Text) >= int.Parse(TbxEndHour.Text)) && CmbTimeBegin.SelectedIndex == 0 && CmbTimeEnd.SelectedIndex == 0) && TbxBeginHour.Text != "00") ||
    ((int.Parse(TbxBeginHour.Text) >= int.Parse(TbxEndHour.Text)) && CmbTimeBegin.SelectedIndex == 1 && CmbTimeEnd.SelectedIndex == 0) ||
    ((int.Parse(TbxBeginHour.Text) >= int.Parse(TbxEndHour.Text)) && CmbTimeBegin.SelectedIndex == 1 && CmbTimeEnd.SelectedIndex == 1))
                     {
@@ -224,7 +242,22 @@ namespace NeedsHelp
                         FormattedEndDate = DT.ToString($"{LblDate.Text} 01:00:00");
 
                     if (CbxFullDay.Checked || TbxEndHour.Text == "12" && CmbTimeEnd.SelectedIndex == 1)
-                        FormattedEndDate = $"{year}-{month}-{int.Parse(day) + 1}";
+                        FormattedEndDate = $"{year}-{month}-{day + 1}";
+
+                    if (day == DateTime.DaysInMonth(year, month) && CbxFullDay.Checked == true || day == DateTime.DaysInMonth(year, month) && TbxEndHour.Text == "12" && CmbTimeEnd.SelectedIndex == 1)
+                    {
+                        FormattedEndDate = $"{year}-{month + 1}-{1}";
+                        if(month==12)
+                            FormattedEndDate = $"{year+1}-{1}-{1}";
+                    }
+
+
+
+                    //if (TbxEndHour.Text == "11" && CmbTimeEnd.SelectedIndex == 1 && TbxBeginHour.Text == "11" && CmbTimeBegin.SelectedIndex==1)
+                    //{
+                    //    FormattedEndDate = $"{year}-{month}-{int.Parse(day) + 1}";
+                    //    TbxEndHour.Text = "12";
+                    //}
 
 
 
@@ -282,7 +315,7 @@ namespace NeedsHelp
             {
                 SqlConnection Con = new SqlConnection(FormMain.TxtCon);
 
-                SqlCommand Cmd = new SqlCommand($"delete from [Events] where IdEvent='{LblId.Text}'", Con);
+                SqlCommand Cmd = new SqlCommand($"delete   [Events] where IdEvent='{LblId.Text}'", Con);
 
                 Con.Open();
                 Cmd.ExecuteNonQuery();

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            Guna.UI2.AnimatorNS.Animation animation2 = new Guna.UI2.AnimatorNS.Animation();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            Guna.UI2.AnimatorNS.Animation animation5 = new Guna.UI2.AnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.MiddleContainer = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.PanelData = new Guna.UI2.WinForms.Guna2Panel();
@@ -47,6 +47,9 @@
             this.BsDate = new System.Windows.Forms.BindingSource(this.components);
             this.dBKurs23DataSet = new NeedsHelp.DBKurs23DataSet();
             this.PanelDown = new Guna.UI2.WinForms.Guna2Panel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.BtnManual = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Hide = new System.Windows.Forms.Label();
             this.RusLanguage = new Guna.UI2.WinForms.Guna2CheckBox();
@@ -80,21 +83,26 @@
             this.tableAdapterManager = new NeedsHelp.DBKurs23DataSetTableAdapters.TableAdapterManager();
             this.Org_Pro = new System.Windows.Forms.NotifyIcon(this.components);
             this.TimerAlarm = new System.Windows.Forms.Timer(this.components);
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.BtnManual = new Guna.UI2.WinForms.Guna2Button();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.guna2Elipse4 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.BtnEndedEvents = new Guna.UI2.WinForms.Guna2Button();
             this.MiddleContainer.SuspendLayout();
             this.PanelData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvEvents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BsDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBKurs23DataSet)).BeginInit();
             this.PanelDown.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.PanelCalendar.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.CMenuStrip.SuspendLayout();
             this.CMenuEdit.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // MiddleContainer
@@ -135,7 +143,7 @@
             this.LblInformation.Name = "LblInformation";
             this.LblInformation.Size = new System.Drawing.Size(140, 100);
             this.LblInformation.TabIndex = 38;
-            this.LblInformation.Text = "no upcoming events";
+            this.LblInformation.Text = "No upcoming events";
             this.LblInformation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LblInformation.Visible = false;
             // 
@@ -148,14 +156,14 @@
             this.DgvEvents.AutoGenerateColumns = false;
             this.DgvEvents.BackgroundColor = System.Drawing.Color.White;
             this.DgvEvents.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvEvents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvEvents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.DgvEvents.ColumnHeadersHeight = 30;
             this.DgvEvents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DgvEvents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -168,28 +176,28 @@
             this.DgvEvents.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DgvEvents.DataSource = this.BsDate;
             this.Show2SloiAnimated.SetDecoration(this.DgvEvents, Guna.UI2.AnimatorNS.DecorationType.None);
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvEvents.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvEvents.DefaultCellStyle = dataGridViewCellStyle14;
             this.DgvEvents.EnableHeadersVisualStyles = false;
             this.DgvEvents.GridColor = System.Drawing.Color.White;
             this.DgvEvents.Location = new System.Drawing.Point(3, 3);
             this.DgvEvents.MultiSelect = false;
             this.DgvEvents.Name = "DgvEvents";
             this.DgvEvents.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvEvents.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvEvents.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.DgvEvents.RowHeadersVisible = false;
             this.DgvEvents.RowTemplate.Height = 35;
             this.DgvEvents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -228,7 +236,7 @@
             this.beginDateDataGridViewTextBoxColumn.HeaderText = "BeginDate";
             this.beginDateDataGridViewTextBoxColumn.Name = "beginDateDataGridViewTextBoxColumn";
             this.beginDateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.beginDateDataGridViewTextBoxColumn.Width = 200;
+            this.beginDateDataGridViewTextBoxColumn.Width = 190;
             // 
             // endDateDataGridViewTextBoxColumn
             // 
@@ -236,7 +244,7 @@
             this.endDateDataGridViewTextBoxColumn.HeaderText = "EndDate";
             this.endDateDataGridViewTextBoxColumn.Name = "endDateDataGridViewTextBoxColumn";
             this.endDateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.endDateDataGridViewTextBoxColumn.Width = 200;
+            this.endDateDataGridViewTextBoxColumn.Width = 190;
             // 
             // stateDataGridViewTextBoxColumn
             // 
@@ -250,6 +258,7 @@
             // 
             this.BsDate.DataMember = "Events";
             this.BsDate.DataSource = this.dBKurs23DataSet;
+            this.BsDate.Filter = "State=\'Предстоящее\' or State=\'Ежедневное\'";
             // 
             // dBKurs23DataSet
             // 
@@ -260,27 +269,70 @@
             // 
             this.PanelDown.BackColor = System.Drawing.Color.White;
             this.PanelDown.BorderColor = System.Drawing.Color.Transparent;
+            this.PanelDown.Controls.Add(this.flowLayoutPanel3);
+            this.PanelDown.Controls.Add(this.flowLayoutPanel4);
             this.PanelDown.Controls.Add(this.flowLayoutPanel2);
-            this.PanelDown.Controls.Add(this.flowLayoutPanel1);
             this.Show2SloiAnimated.SetDecoration(this.PanelDown, Guna.UI2.AnimatorNS.DecorationType.None);
             this.PanelDown.Location = new System.Drawing.Point(12, 417);
             this.PanelDown.Name = "PanelDown";
             this.PanelDown.Size = new System.Drawing.Size(341, 265);
             this.PanelDown.TabIndex = 29;
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel2.Controls.Add(this.label8);
+            this.flowLayoutPanel2.Controls.Add(this.BtnManual);
+            this.Show2SloiAnimated.SetDecoration(this.flowLayoutPanel2, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(12, 207);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(312, 44);
+            this.flowLayoutPanel2.TabIndex = 19;
+            // 
+            // label8
+            // 
+            this.Show2SloiAnimated.SetDecoration(this.label8, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label8.Location = new System.Drawing.Point(3, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(10, 0);
+            this.label8.TabIndex = 1;
+            // 
+            // BtnManual
+            // 
+            this.BtnManual.BorderRadius = 2;
+            this.Show2SloiAnimated.SetDecoration(this.BtnManual, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.BtnManual.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnManual.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnManual.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnManual.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnManual.FillColor = System.Drawing.Color.Gray;
+            this.BtnManual.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BtnManual.ForeColor = System.Drawing.Color.White;
+            this.BtnManual.Location = new System.Drawing.Point(3, 3);
+            this.BtnManual.Name = "BtnManual";
+            this.BtnManual.Size = new System.Drawing.Size(305, 37);
+            this.BtnManual.TabIndex = 20;
+            this.BtnManual.Text = "User manual";
+            this.BtnManual.Click += new System.EventHandler(this.BtnManual_Click);
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Gray;
             this.flowLayoutPanel1.Controls.Add(this.Hide);
             this.flowLayoutPanel1.Controls.Add(this.RusLanguage);
             this.Show2SloiAnimated.SetDecoration(this.flowLayoutPanel1, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 14);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(305, 42);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(312, 44);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(305, 42);
             this.flowLayoutPanel1.TabIndex = 18;
             // 
             // Hide
@@ -299,17 +351,17 @@
             this.RusLanguage.CheckedState.BorderThickness = 0;
             this.RusLanguage.CheckedState.FillColor = System.Drawing.Color.DarkSeaGreen;
             this.Show2SloiAnimated.SetDecoration(this.RusLanguage, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.RusLanguage.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RusLanguage.ForeColor = System.Drawing.Color.Gray;
+            this.RusLanguage.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.RusLanguage.ForeColor = System.Drawing.Color.White;
             this.RusLanguage.Location = new System.Drawing.Point(19, 3);
             this.RusLanguage.Name = "RusLanguage";
             this.RusLanguage.Size = new System.Drawing.Size(197, 38);
             this.RusLanguage.TabIndex = 0;
             this.RusLanguage.Text = "Перевести язык";
-            this.RusLanguage.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.RusLanguage.UncheckedState.BorderColor = System.Drawing.Color.White;
             this.RusLanguage.UncheckedState.BorderRadius = 0;
             this.RusLanguage.UncheckedState.BorderThickness = 0;
-            this.RusLanguage.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.RusLanguage.UncheckedState.FillColor = System.Drawing.Color.White;
             this.RusLanguage.CheckedChanged += new System.EventHandler(this.RusLanguage_CheckedChanged);
             // 
             // PanelCalendar
@@ -573,22 +625,22 @@
             // 
             this.Show2SloiAnimated.AnimationType = Guna.UI2.AnimatorNS.AnimationType.HorizSlide;
             this.Show2SloiAnimated.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 0F;
-            this.Show2SloiAnimated.DefaultAnimation = animation2;
+            animation5.AnimateOnlyDifferences = true;
+            animation5.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.BlindCoeff")));
+            animation5.LeafCoeff = 0F;
+            animation5.MaxTime = 1F;
+            animation5.MinTime = 0F;
+            animation5.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicCoeff")));
+            animation5.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicShift")));
+            animation5.MosaicSize = 0;
+            animation5.Padding = new System.Windows.Forms.Padding(0);
+            animation5.RotateCoeff = 0F;
+            animation5.RotateLimit = 0F;
+            animation5.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.ScaleCoeff")));
+            animation5.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.SlideCoeff")));
+            animation5.TimeCoeff = 0F;
+            animation5.TransparencyCoeff = 0F;
+            this.Show2SloiAnimated.DefaultAnimation = animation5;
             this.Show2SloiAnimated.Interval = 30;
             this.Show2SloiAnimated.MaxAnimationTime = 1000;
             this.Show2SloiAnimated.TimeStep = 0.05F;
@@ -657,49 +709,79 @@
             // 
             // TimerAlarm
             // 
-            this.TimerAlarm.Interval = 60000;
+            this.TimerAlarm.Interval = 6000;
             this.TimerAlarm.Tick += new System.EventHandler(this.TimerAlarm_Tick);
             // 
-            // flowLayoutPanel2
+            // flowLayoutPanel4
             // 
-            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.flowLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel2.Controls.Add(this.label8);
-            this.flowLayoutPanel2.Controls.Add(this.BtnManual);
-            this.Show2SloiAnimated.SetDecoration(this.flowLayoutPanel2, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(12, 207);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(312, 44);
-            this.flowLayoutPanel2.TabIndex = 19;
+            this.flowLayoutPanel4.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel4.Controls.Add(this.label11);
+            this.flowLayoutPanel4.Controls.Add(this.flowLayoutPanel1);
+            this.Show2SloiAnimated.SetDecoration(this.flowLayoutPanel4, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(12, 10);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(312, 49);
+            this.flowLayoutPanel4.TabIndex = 21;
             // 
-            // label8
+            // label11
             // 
-            this.Show2SloiAnimated.SetDecoration(this.label8, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label8.Location = new System.Drawing.Point(3, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(10, 0);
-            this.label8.TabIndex = 1;
+            this.Show2SloiAnimated.SetDecoration(this.label11, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label11.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label11.Location = new System.Drawing.Point(3, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(10, 0);
+            this.label11.TabIndex = 1;
             // 
-            // BtnManual
+            // guna2Elipse4
             // 
-            this.BtnManual.BorderRadius = 2;
-            this.Show2SloiAnimated.SetDecoration(this.BtnManual, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.BtnManual.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnManual.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnManual.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnManual.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnManual.FillColor = System.Drawing.Color.Gray;
-            this.BtnManual.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BtnManual.ForeColor = System.Drawing.Color.White;
-            this.BtnManual.Location = new System.Drawing.Point(3, 3);
-            this.BtnManual.Name = "BtnManual";
-            this.BtnManual.Size = new System.Drawing.Size(305, 37);
-            this.BtnManual.TabIndex = 20;
-            this.BtnManual.Text = "User manual";
+            this.guna2Elipse4.BorderRadius = 4;
+            this.guna2Elipse4.TargetControl = this.flowLayoutPanel1;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel3.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel3.Controls.Add(this.label10);
+            this.flowLayoutPanel3.Controls.Add(this.BtnEndedEvents);
+            this.Show2SloiAnimated.SetDecoration(this.flowLayoutPanel3, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(12, 152);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(312, 44);
+            this.flowLayoutPanel3.TabIndex = 22;
+            // 
+            // label10
+            // 
+            this.Show2SloiAnimated.SetDecoration(this.label10, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label10.Location = new System.Drawing.Point(3, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(10, 0);
+            this.label10.TabIndex = 1;
+            // 
+            // BtnEndedEvents
+            // 
+            this.BtnEndedEvents.BorderRadius = 2;
+            this.Show2SloiAnimated.SetDecoration(this.BtnEndedEvents, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.BtnEndedEvents.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnEndedEvents.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnEndedEvents.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnEndedEvents.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnEndedEvents.FillColor = System.Drawing.Color.Gray;
+            this.BtnEndedEvents.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BtnEndedEvents.ForeColor = System.Drawing.Color.White;
+            this.BtnEndedEvents.Location = new System.Drawing.Point(3, 3);
+            this.BtnEndedEvents.Name = "BtnEndedEvents";
+            this.BtnEndedEvents.Size = new System.Drawing.Size(305, 37);
+            this.BtnEndedEvents.TabIndex = 20;
+            this.BtnEndedEvents.Text = "Ended events";
+            this.BtnEndedEvents.Click += new System.EventHandler(this.BtnEndedEvents_Click);
             // 
             // FormMain
             // 
@@ -723,13 +805,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.BsDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBKurs23DataSet)).EndInit();
             this.PanelDown.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.PanelCalendar.ResumeLayout(false);
             this.PanelCalendar.PerformLayout();
             this.guna2Panel1.ResumeLayout(false);
             this.CMenuStrip.ResumeLayout(false);
             this.CMenuEdit.ResumeLayout(false);
-            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel4.ResumeLayout(false);
+            this.flowLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -768,12 +852,6 @@
         private System.Windows.Forms.BindingSource BsDate;
         private DBKurs23DataSetTableAdapters.EventsTableAdapter eventsTableAdapter;
         private DBKurs23DataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idEventDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn beginDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn endDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stateDataGridViewTextBoxColumn;
         private System.Windows.Forms.ContextMenuStrip CMenuEdit;
         private System.Windows.Forms.ToolStripMenuItem редактироватьСобытиеToolStripMenuItem;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -784,5 +862,17 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2Button BtnManual;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idEventDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn beginDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private System.Windows.Forms.Label label11;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse4;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.Label label10;
+        private Guna.UI2.WinForms.Guna2Button BtnEndedEvents;
     }
 }

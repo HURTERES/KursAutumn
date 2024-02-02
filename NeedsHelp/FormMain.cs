@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
@@ -14,6 +15,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using ExcelDataReader;
 using Guna.UI2.WinForms;
 using Guna.UI2.WinForms.Suite;
 using Tulpep.NotificationWindow;
@@ -70,12 +72,13 @@ namespace NeedsHelp
                 UserControlDays ucDays = new UserControlDays();
                 ucDays.days(i);
 
-
-
                 // Добавляем обработчик события Enter для UserControlDays
                 ucDays.Enter += (enterSender, enterArgs) => UserControlDays_Enter(enterSender, enterArgs, i);
-
-                DaysContainer.Controls.Add(ucDays);
+                //if (BthDay == i && month == BthMonth)
+                //{
+                //        DaysContainer.Controls.Add(ucDays);
+                //} else
+                    DaysContainer.Controls.Add(ucDays);
             }
         }
 
@@ -95,10 +98,34 @@ namespace NeedsHelp
             catch { LblInformation.Visible = true; }
         }
 
+        public string BthName;
+        public int BthDay, BthMonth;
+
         private void FormMain_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dBKurs23DataSet.Events' table. You can move, or remove it, as needed.
             this.eventsTableAdapter.Fill(this.dBKurs23DataSet.Events);
+
+            // ЧТЕНИЕ ДАННЫХ ИЗ EXCEL ТАБЛИЦЫ, ВРЕМЕННО НЕ НУЖЕН, Т.К. ТРУДНОСТИ С ДОБАВЛЕНИЕМ В UDAYS CONTAINER ДОПОЛНИТЕЛЬНЫХ СИМВОЛОВ !=INT + К ЭТОМУ ЗАТЕМ
+            // СЧИТЫВАЕТСЯ ЗНАЧЕНИЕ ПОЛЯ(В СЛУЧАЕ ЕСЛИ ДОП СИМВОЛ !=INT, ТОГДА СНОВА ВЫДАЕТ ОШИБКУ) + УВЕЛИЧИВАЕТ ВРЕМЯ ЗАГРУЗКИ ФОРМЫ
+
+            
+            // Ошибка если файл открыт
+            //FileStream stream = File.Open(Application.StartupPath + "\\Birhdays.xlsx", FileMode.Open, FileAccess.Read);
+            //IExcelDataReader excelReader;
+            //excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
+            //// Читаем, получаем DataSet и работаем с ним как обычно.
+            //DataSet result = excelReader.AsDataSet();
+            //DataTable dt = result.Tables[0];
+            //// После завершения чтения освобождаем ресурсы.
+            //excelReader.Close();
+
+            //BthName = dt.Rows[0][0].ToString();
+            //BthDay= int.Parse((dt.Rows[0][1].ToString().Split(' ')[0]).Split('/')[0]);
+            //BthMonth= int.Parse((dt.Rows[0][1].ToString().Split(' ')[0]).Split('/')[1]);
+            //label9.Text = dt.Rows[0][0].ToString() + " " + (dt.Rows[0][1].ToString().Split(' ')[0]).Split('/')[0] + " " + (dt.Rows[0][1].ToString().Split(' ')[0]).Split('/')[1];
+
+
             DisplayDays();
             LblInformation.Dock= DockStyle.Fill;
             DgvEvents.AllowUserToResizeColumns = false;
@@ -333,6 +360,17 @@ namespace NeedsHelp
 
         string IdEvent,NameEvent,Desc,BeginDate,EndDate, Beg, End, State;
 
+        private void BtnManual_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnEndedEvents_Click(object sender, EventArgs e)
+        {
+            FormEndedList Frm = new FormEndedList();
+            Frm.ShowDialog();
+        }
+
         private void FormMain_Shown(object sender, EventArgs e)
         {
             TimerAlarm.Enabled = true;
@@ -431,7 +469,7 @@ namespace NeedsHelp
                         System.Media.SoundPlayer player = new System.Media.SoundPlayer(Application.StartupPath + "\\Sound\\audio-editor-output.wav");
                         player.Play();
                         popup.Popup();
-                        Cmd = new SqlCommand($"delete from [Events] where IdEvent='{DgvEvents.Rows[i].Cells[0].Value}'", Con);
+                        Cmd = new SqlCommand($"update [Events] set State='Завершенное' where IdEvent='{DgvEvents.Rows[i].Cells[0].Value}'", Con);
                         Con.Open();
                         Cmd.ExecuteNonQuery();
                         Con.Close();
@@ -454,6 +492,8 @@ namespace NeedsHelp
 
             this.eventsTableAdapter.Fill(this.dBKurs23DataSet.Events);
             this.eventsTableAdapter.Update(this.dBKurs23DataSet.Events);
+            if (DgvEvents.Rows.Count == 0)
+                LblInformation.Visible = true;
             DgvEvents.ClearSelection();
         }
 
@@ -490,6 +530,7 @@ namespace NeedsHelp
             Org_Pro.Visible = false;
         }
 
+        public static int LanguageState=0;
         private void RusLanguage_CheckedChanged(object sender, EventArgs e)
         {
             if (RusLanguage.Checked)
@@ -543,6 +584,8 @@ namespace NeedsHelp
                 CMenuStrip.Items[0].Text = "Добавить событие";
                 CMenuEdit.Items[0].Text = "Редактировать событие";
                 BtnManual.Text = "Руководство пользователя";
+                BtnEndedEvents.Text = "Завершенные события";
+                LanguageState = 1;
             }
             else
             {
@@ -559,10 +602,12 @@ namespace NeedsHelp
                 DgvEvents.Columns[2].HeaderText = "Description";
                 DgvEvents.Columns[3].HeaderText = "BeginDate";
                 DgvEvents.Columns[4].HeaderText = "EndDate";
-                LblInformation.Text = "no upcoming events";
+                LblInformation.Text = "No upcoming events";
                 BtnManual.Text = "User manual";
                 CMenuStrip.Items[0].Text = "Add event";
                 CMenuEdit.Items[0].Text = "Edit event";
+                BtnEndedEvents.Text = "Ended events";
+                LanguageState = 0;
             }
 
         }
