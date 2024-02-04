@@ -586,6 +586,8 @@ namespace NeedsHelp
                 CMenuEdit.Items[0].Text = "Редактировать событие";
                 BtnManual.Text = "Руководство пользователя";
                 BtnEndedEvents.Text = "Завершенные события";
+                BtnNotes.Text = "Заметки";
+                BtnBook.Text = "Контакты";
                 LanguageState = 1;
             }
             else
@@ -608,6 +610,8 @@ namespace NeedsHelp
                 CMenuStrip.Items[0].Text = "Add event";
                 CMenuEdit.Items[0].Text = "Edit event";
                 BtnEndedEvents.Text = "Ended events";
+                BtnNotes.Text = "Notes";
+                BtnBook.Text = "Contacts";
                 LanguageState = 0;
             }
 

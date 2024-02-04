@@ -351,6 +351,7 @@ namespace NeedsHelp
                 label3.Text = "Начало:";
                 label4.Text = "Окончание:";
                 CbxFullDay.Text = "Целый день";
+                CMenuStrip.Items[0].Text = "Не все поля заполнены";
                 label3.Location = new Point(23, 330);
                 TbxBeginHour.Location = new Point(97, 328);
                 CmbTimeBegin.Location = new Point(139, 328);

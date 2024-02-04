@@ -30,7 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddEvent));
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.CMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.добавитьСобытиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FindSymbols = new System.Windows.Forms.Timer(this.components);
             this.PanelDown = new Guna.UI2.WinForms.Guna2Panel();
             this.CbxDaily = new System.Windows.Forms.CheckBox();
             this.Check = new System.Windows.Forms.Label();
@@ -53,18 +55,33 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.LblDate = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.CMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.добавитьСобытиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.FindSymbols = new System.Windows.Forms.Timer(this.components);
-            this.PanelDown.SuspendLayout();
             this.CMenuStrip.SuspendLayout();
+            this.PanelDown.SuspendLayout();
             this.SuspendLayout();
             // 
-            // guna2Elipse1
+            // CMenuStrip
             // 
-            this.guna2Elipse1.BorderRadius = 10;
-            this.guna2Elipse1.TargetControl = this;
+            this.CMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.добавитьСобытиеToolStripMenuItem});
+            this.CMenuStrip.Name = "CMenuStrip";
+            this.CMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.CMenuStrip.ShowImageMargin = false;
+            this.CMenuStrip.Size = new System.Drawing.Size(177, 48);
+            // 
+            // добавитьСобытиеToolStripMenuItem
+            // 
+            this.добавитьСобытиеToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
+            this.добавитьСобытиеToolStripMenuItem.Enabled = false;
+            this.добавитьСобытиеToolStripMenuItem.Name = "добавитьСобытиеToolStripMenuItem";
+            this.добавитьСобытиеToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.добавитьСобытиеToolStripMenuItem.Text = "Not all fields are filled in";
+            this.добавитьСобытиеToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // FindSymbols
+            // 
+            this.FindSymbols.Tick += new System.EventHandler(this.FindSymbols_Tick);
             // 
             // PanelDown
             // 
@@ -385,32 +402,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Event title: ";
             // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 10;
+            this.guna2Elipse1.TargetControl = this;
+            // 
             // guna2DragControl1
             // 
             this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2DragControl1.TargetControl = this.PanelDown;
             this.guna2DragControl1.UseTransparentDrag = true;
-            // 
-            // CMenuStrip
-            // 
-            this.CMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.добавитьСобытиеToolStripMenuItem});
-            this.CMenuStrip.Name = "CMenuStrip";
-            this.CMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.CMenuStrip.Size = new System.Drawing.Size(205, 26);
-            // 
-            // добавитьСобытиеToolStripMenuItem
-            // 
-            this.добавитьСобытиеToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
-            this.добавитьСобытиеToolStripMenuItem.Enabled = false;
-            this.добавитьСобытиеToolStripMenuItem.Name = "добавитьСобытиеToolStripMenuItem";
-            this.добавитьСобытиеToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.добавитьСобытиеToolStripMenuItem.Text = "Не все поля заполнены";
-            this.добавитьСобытиеToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // FindSymbols
-            // 
-            this.FindSymbols.Tick += new System.EventHandler(this.FindSymbols_Tick);
             // 
             // FormAddEvent
             // 
@@ -426,9 +427,9 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormAddEvent_FormClosing);
             this.Load += new System.EventHandler(this.FormAddEvent_Load);
             this.Shown += new System.EventHandler(this.FormAddEvent_Shown);
+            this.CMenuStrip.ResumeLayout(false);
             this.PanelDown.ResumeLayout(false);
             this.PanelDown.PerformLayout();
-            this.CMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

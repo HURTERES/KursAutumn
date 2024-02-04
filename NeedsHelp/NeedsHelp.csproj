@@ -203,6 +203,7 @@
     <None Include="Resources\AddEvent1.png" />
     <None Include="Resources\EditPen.png" />
     <None Include="Resources\MoreInformation.png" />
+    <None Include="Resources\gear.png" />
     <Content Include="Resources\WhiteBook.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
