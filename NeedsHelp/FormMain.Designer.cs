@@ -47,11 +47,23 @@
             this.BsDate = new System.Windows.Forms.BindingSource(this.components);
             this.dBKurs23DataSet = new NeedsHelp.DBKurs23DataSet();
             this.PanelDown = new Guna.UI2.WinForms.Guna2Panel();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.BtnBook = new Guna.UI2.WinForms.Guna2Button();
+            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.BtnNotes = new Guna.UI2.WinForms.Guna2Button();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.BtnEndedEvents = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Hide = new System.Windows.Forms.Label();
             this.RusLanguage = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.BtnManual = new Guna.UI2.WinForms.Guna2Button();
             this.PanelCalendar = new Guna.UI2.WinForms.Guna2Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.LblYearMonth = new System.Windows.Forms.Label();
@@ -66,13 +78,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.BtnSettings = new Guna.UI2.WinForms.Guna2Button();
             this.BtnHide = new Guna.UI2.WinForms.Guna2Button();
             this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
             this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2DragControl3 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Show2SloiAnimated = new Guna.UI2.WinForms.Guna2Transition();
             this.CMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.добавитьСобытиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CMenuEdit = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.редактироватьСобытиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
@@ -81,37 +96,22 @@
             this.Org_Pro = new System.Windows.Forms.NotifyIcon(this.components);
             this.TimerAlarm = new System.Windows.Forms.Timer(this.components);
             this.guna2Elipse4 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.BtnManual = new Guna.UI2.WinForms.Guna2Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.BtnEndedEvents = new Guna.UI2.WinForms.Guna2Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.BtnBook = new Guna.UI2.WinForms.Guna2Button();
-            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.BtnNotes = new Guna.UI2.WinForms.Guna2Button();
-            this.BtnSettings = new Guna.UI2.WinForms.Guna2Button();
-            this.добавитьСобытиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.редактироватьСобытиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MiddleContainer.SuspendLayout();
             this.PanelData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvEvents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BsDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBKurs23DataSet)).BeginInit();
             this.PanelDown.SuspendLayout();
+            this.flowLayoutPanel5.SuspendLayout();
+            this.flowLayoutPanel6.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.PanelCalendar.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.CMenuStrip.SuspendLayout();
             this.CMenuEdit.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
-            this.flowLayoutPanel5.SuspendLayout();
-            this.flowLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // MiddleContainer
@@ -289,6 +289,131 @@
             this.PanelDown.Size = new System.Drawing.Size(341, 265);
             this.PanelDown.TabIndex = 29;
             // 
+            // flowLayoutPanel5
+            // 
+            this.flowLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel5.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel5.Controls.Add(this.label9);
+            this.flowLayoutPanel5.Controls.Add(this.BtnBook);
+            this.Show2SloiAnimated.SetDecoration(this.flowLayoutPanel5, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(12, 61);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(312, 44);
+            this.flowLayoutPanel5.TabIndex = 25;
+            // 
+            // label9
+            // 
+            this.Show2SloiAnimated.SetDecoration(this.label9, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label9.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label9.Location = new System.Drawing.Point(3, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(10, 0);
+            this.label9.TabIndex = 1;
+            // 
+            // BtnBook
+            // 
+            this.BtnBook.BorderRadius = 2;
+            this.Show2SloiAnimated.SetDecoration(this.BtnBook, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.BtnBook.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnBook.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnBook.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnBook.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnBook.FillColor = System.Drawing.Color.Gray;
+            this.BtnBook.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BtnBook.ForeColor = System.Drawing.Color.White;
+            this.BtnBook.Location = new System.Drawing.Point(3, 3);
+            this.BtnBook.Name = "BtnBook";
+            this.BtnBook.Size = new System.Drawing.Size(305, 37);
+            this.BtnBook.TabIndex = 20;
+            this.BtnBook.Text = "Contacts";
+            // 
+            // flowLayoutPanel6
+            // 
+            this.flowLayoutPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel6.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel6.Controls.Add(this.label12);
+            this.flowLayoutPanel6.Controls.Add(this.BtnNotes);
+            this.Show2SloiAnimated.SetDecoration(this.flowLayoutPanel6, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(12, 111);
+            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(312, 44);
+            this.flowLayoutPanel6.TabIndex = 24;
+            // 
+            // label12
+            // 
+            this.Show2SloiAnimated.SetDecoration(this.label12, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label12.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label12.Location = new System.Drawing.Point(3, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(10, 0);
+            this.label12.TabIndex = 1;
+            // 
+            // BtnNotes
+            // 
+            this.BtnNotes.BorderRadius = 2;
+            this.Show2SloiAnimated.SetDecoration(this.BtnNotes, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.BtnNotes.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnNotes.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnNotes.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnNotes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnNotes.FillColor = System.Drawing.Color.Gray;
+            this.BtnNotes.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BtnNotes.ForeColor = System.Drawing.Color.White;
+            this.BtnNotes.Location = new System.Drawing.Point(3, 3);
+            this.BtnNotes.Name = "BtnNotes";
+            this.BtnNotes.Size = new System.Drawing.Size(305, 37);
+            this.BtnNotes.TabIndex = 20;
+            this.BtnNotes.Text = "Notes";
+            this.BtnNotes.Click += new System.EventHandler(this.BtnNotes_Click);
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel3.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel3.Controls.Add(this.label10);
+            this.flowLayoutPanel3.Controls.Add(this.BtnEndedEvents);
+            this.Show2SloiAnimated.SetDecoration(this.flowLayoutPanel3, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(12, 161);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(312, 44);
+            this.flowLayoutPanel3.TabIndex = 22;
+            // 
+            // label10
+            // 
+            this.Show2SloiAnimated.SetDecoration(this.label10, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label10.Location = new System.Drawing.Point(3, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(10, 0);
+            this.label10.TabIndex = 1;
+            // 
+            // BtnEndedEvents
+            // 
+            this.BtnEndedEvents.BorderRadius = 2;
+            this.Show2SloiAnimated.SetDecoration(this.BtnEndedEvents, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.BtnEndedEvents.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnEndedEvents.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnEndedEvents.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnEndedEvents.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnEndedEvents.FillColor = System.Drawing.Color.Gray;
+            this.BtnEndedEvents.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BtnEndedEvents.ForeColor = System.Drawing.Color.White;
+            this.BtnEndedEvents.Location = new System.Drawing.Point(3, 3);
+            this.BtnEndedEvents.Name = "BtnEndedEvents";
+            this.BtnEndedEvents.Size = new System.Drawing.Size(305, 37);
+            this.BtnEndedEvents.TabIndex = 20;
+            this.BtnEndedEvents.Text = "Ended events";
+            this.BtnEndedEvents.Click += new System.EventHandler(this.BtnEndedEvents_Click);
+            // 
             // flowLayoutPanel4
             // 
             this.flowLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -356,6 +481,48 @@
             this.RusLanguage.UncheckedState.BorderThickness = 0;
             this.RusLanguage.UncheckedState.FillColor = System.Drawing.Color.White;
             this.RusLanguage.CheckedChanged += new System.EventHandler(this.RusLanguage_CheckedChanged);
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel2.Controls.Add(this.label8);
+            this.flowLayoutPanel2.Controls.Add(this.BtnManual);
+            this.Show2SloiAnimated.SetDecoration(this.flowLayoutPanel2, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(12, 211);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(312, 44);
+            this.flowLayoutPanel2.TabIndex = 19;
+            // 
+            // label8
+            // 
+            this.Show2SloiAnimated.SetDecoration(this.label8, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label8.Location = new System.Drawing.Point(3, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(10, 0);
+            this.label8.TabIndex = 1;
+            // 
+            // BtnManual
+            // 
+            this.BtnManual.BorderRadius = 2;
+            this.Show2SloiAnimated.SetDecoration(this.BtnManual, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.BtnManual.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnManual.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnManual.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnManual.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnManual.FillColor = System.Drawing.Color.Gray;
+            this.BtnManual.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BtnManual.ForeColor = System.Drawing.Color.White;
+            this.BtnManual.Location = new System.Drawing.Point(3, 3);
+            this.BtnManual.Name = "BtnManual";
+            this.BtnManual.Size = new System.Drawing.Size(305, 37);
+            this.BtnManual.TabIndex = 20;
+            this.BtnManual.Text = "User manual";
+            this.BtnManual.Click += new System.EventHandler(this.BtnManual_Click);
             // 
             // PanelCalendar
             // 
@@ -552,6 +719,31 @@
             this.guna2Panel1.TabIndex = 12;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
+            // BtnSettings
+            // 
+            this.BtnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnSettings.Animated = true;
+            this.BtnSettings.BackColor = System.Drawing.Color.Transparent;
+            this.BtnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnSettings.BorderColor = System.Drawing.Color.Transparent;
+            this.BtnSettings.BorderRadius = 8;
+            this.BtnSettings.BorderThickness = 1;
+            this.Show2SloiAnimated.SetDecoration(this.BtnSettings, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.BtnSettings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnSettings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnSettings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnSettings.FillColor = System.Drawing.Color.Transparent;
+            this.BtnSettings.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BtnSettings.ForeColor = System.Drawing.Color.Black;
+            this.BtnSettings.Image = global::NeedsHelp.Properties.Resources.gear;
+            this.BtnSettings.Location = new System.Drawing.Point(12, 5);
+            this.BtnSettings.Name = "BtnSettings";
+            this.BtnSettings.PressedColor = System.Drawing.Color.Gray;
+            this.BtnSettings.ShadowDecoration.BorderRadius = 30;
+            this.BtnSettings.Size = new System.Drawing.Size(23, 22);
+            this.BtnSettings.TabIndex = 4;
+            // 
             // BtnHide
             // 
             this.BtnHide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -648,6 +840,13 @@
             this.CMenuStrip.Size = new System.Drawing.Size(129, 26);
             this.CMenuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.CMenuStrip_ItemClicked);
             // 
+            // добавитьСобытиеToolStripMenuItem
+            // 
+            this.добавитьСобытиеToolStripMenuItem.Image = global::NeedsHelp.Properties.Resources.AddEvent;
+            this.добавитьСобытиеToolStripMenuItem.Name = "добавитьСобытиеToolStripMenuItem";
+            this.добавитьСобытиеToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.добавитьСобытиеToolStripMenuItem.Text = "Add Event";
+            // 
             // CMenuEdit
             // 
             this.Show2SloiAnimated.SetDecoration(this.CMenuEdit, Guna.UI2.AnimatorNS.DecorationType.None);
@@ -656,6 +855,13 @@
             this.CMenuEdit.Name = "CMenuEdit";
             this.CMenuEdit.Size = new System.Drawing.Size(127, 26);
             this.CMenuEdit.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.CMenuEdit_ItemClicked);
+            // 
+            // редактироватьСобытиеToolStripMenuItem
+            // 
+            this.редактироватьСобытиеToolStripMenuItem.Image = global::NeedsHelp.Properties.Resources.EditPen;
+            this.редактироватьСобытиеToolStripMenuItem.Name = "редактироватьСобытиеToolStripMenuItem";
+            this.редактироватьСобытиеToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.редактироватьСобытиеToolStripMenuItem.Text = "Edit Event";
             // 
             // guna2Elipse1
             // 
@@ -699,211 +905,6 @@
             this.guna2Elipse4.BorderRadius = 4;
             this.guna2Elipse4.TargetControl = this.flowLayoutPanel1;
             // 
-            // BtnManual
-            // 
-            this.BtnManual.BorderRadius = 2;
-            this.Show2SloiAnimated.SetDecoration(this.BtnManual, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.BtnManual.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnManual.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnManual.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnManual.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnManual.FillColor = System.Drawing.Color.Gray;
-            this.BtnManual.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BtnManual.ForeColor = System.Drawing.Color.White;
-            this.BtnManual.Location = new System.Drawing.Point(3, 3);
-            this.BtnManual.Name = "BtnManual";
-            this.BtnManual.Size = new System.Drawing.Size(305, 37);
-            this.BtnManual.TabIndex = 20;
-            this.BtnManual.Text = "User manual";
-            this.BtnManual.Click += new System.EventHandler(this.BtnManual_Click);
-            // 
-            // label8
-            // 
-            this.Show2SloiAnimated.SetDecoration(this.label8, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label8.Location = new System.Drawing.Point(3, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(10, 0);
-            this.label8.TabIndex = 1;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel2.Controls.Add(this.label8);
-            this.flowLayoutPanel2.Controls.Add(this.BtnManual);
-            this.Show2SloiAnimated.SetDecoration(this.flowLayoutPanel2, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(12, 211);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(312, 44);
-            this.flowLayoutPanel2.TabIndex = 19;
-            // 
-            // BtnEndedEvents
-            // 
-            this.BtnEndedEvents.BorderRadius = 2;
-            this.Show2SloiAnimated.SetDecoration(this.BtnEndedEvents, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.BtnEndedEvents.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnEndedEvents.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnEndedEvents.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnEndedEvents.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnEndedEvents.FillColor = System.Drawing.Color.Gray;
-            this.BtnEndedEvents.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BtnEndedEvents.ForeColor = System.Drawing.Color.White;
-            this.BtnEndedEvents.Location = new System.Drawing.Point(3, 3);
-            this.BtnEndedEvents.Name = "BtnEndedEvents";
-            this.BtnEndedEvents.Size = new System.Drawing.Size(305, 37);
-            this.BtnEndedEvents.TabIndex = 20;
-            this.BtnEndedEvents.Text = "Ended events";
-            this.BtnEndedEvents.Click += new System.EventHandler(this.BtnEndedEvents_Click);
-            // 
-            // label10
-            // 
-            this.Show2SloiAnimated.SetDecoration(this.label10, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label10.Location = new System.Drawing.Point(3, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(10, 0);
-            this.label10.TabIndex = 1;
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel3.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel3.Controls.Add(this.label10);
-            this.flowLayoutPanel3.Controls.Add(this.BtnEndedEvents);
-            this.Show2SloiAnimated.SetDecoration(this.flowLayoutPanel3, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(12, 161);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(312, 44);
-            this.flowLayoutPanel3.TabIndex = 22;
-            // 
-            // flowLayoutPanel5
-            // 
-            this.flowLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel5.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel5.Controls.Add(this.label9);
-            this.flowLayoutPanel5.Controls.Add(this.BtnBook);
-            this.Show2SloiAnimated.SetDecoration(this.flowLayoutPanel5, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(12, 61);
-            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(312, 44);
-            this.flowLayoutPanel5.TabIndex = 25;
-            // 
-            // label9
-            // 
-            this.Show2SloiAnimated.SetDecoration(this.label9, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label9.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label9.Location = new System.Drawing.Point(3, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(10, 0);
-            this.label9.TabIndex = 1;
-            // 
-            // BtnBook
-            // 
-            this.BtnBook.BorderRadius = 2;
-            this.Show2SloiAnimated.SetDecoration(this.BtnBook, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.BtnBook.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnBook.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnBook.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnBook.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnBook.FillColor = System.Drawing.Color.Gray;
-            this.BtnBook.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BtnBook.ForeColor = System.Drawing.Color.White;
-            this.BtnBook.Location = new System.Drawing.Point(3, 3);
-            this.BtnBook.Name = "BtnBook";
-            this.BtnBook.Size = new System.Drawing.Size(305, 37);
-            this.BtnBook.TabIndex = 20;
-            this.BtnBook.Text = "Contacts";
-            // 
-            // flowLayoutPanel6
-            // 
-            this.flowLayoutPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel6.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel6.Controls.Add(this.label12);
-            this.flowLayoutPanel6.Controls.Add(this.BtnNotes);
-            this.Show2SloiAnimated.SetDecoration(this.flowLayoutPanel6, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(12, 111);
-            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(312, 44);
-            this.flowLayoutPanel6.TabIndex = 24;
-            // 
-            // label12
-            // 
-            this.Show2SloiAnimated.SetDecoration(this.label12, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label12.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label12.Location = new System.Drawing.Point(3, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(10, 0);
-            this.label12.TabIndex = 1;
-            // 
-            // BtnNotes
-            // 
-            this.BtnNotes.BorderRadius = 2;
-            this.Show2SloiAnimated.SetDecoration(this.BtnNotes, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.BtnNotes.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnNotes.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnNotes.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnNotes.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnNotes.FillColor = System.Drawing.Color.Gray;
-            this.BtnNotes.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BtnNotes.ForeColor = System.Drawing.Color.White;
-            this.BtnNotes.Location = new System.Drawing.Point(3, 3);
-            this.BtnNotes.Name = "BtnNotes";
-            this.BtnNotes.Size = new System.Drawing.Size(305, 37);
-            this.BtnNotes.TabIndex = 20;
-            this.BtnNotes.Text = "Notes";
-            // 
-            // BtnSettings
-            // 
-            this.BtnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnSettings.Animated = true;
-            this.BtnSettings.BackColor = System.Drawing.Color.Transparent;
-            this.BtnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnSettings.BorderColor = System.Drawing.Color.Transparent;
-            this.BtnSettings.BorderRadius = 8;
-            this.BtnSettings.BorderThickness = 1;
-            this.Show2SloiAnimated.SetDecoration(this.BtnSettings, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.BtnSettings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnSettings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnSettings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnSettings.FillColor = System.Drawing.Color.Transparent;
-            this.BtnSettings.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BtnSettings.ForeColor = System.Drawing.Color.Black;
-            this.BtnSettings.Image = global::NeedsHelp.Properties.Resources.gear;
-            this.BtnSettings.Location = new System.Drawing.Point(12, 5);
-            this.BtnSettings.Name = "BtnSettings";
-            this.BtnSettings.PressedColor = System.Drawing.Color.Gray;
-            this.BtnSettings.ShadowDecoration.BorderRadius = 30;
-            this.BtnSettings.Size = new System.Drawing.Size(23, 22);
-            this.BtnSettings.TabIndex = 4;
-            // 
-            // добавитьСобытиеToolStripMenuItem
-            // 
-            this.добавитьСобытиеToolStripMenuItem.Image = global::NeedsHelp.Properties.Resources.AddEvent;
-            this.добавитьСобытиеToolStripMenuItem.Name = "добавитьСобытиеToolStripMenuItem";
-            this.добавитьСобытиеToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
-            this.добавитьСобытиеToolStripMenuItem.Text = "Add Event";
-            // 
-            // редактироватьСобытиеToolStripMenuItem
-            // 
-            this.редактироватьСобытиеToolStripMenuItem.Image = global::NeedsHelp.Properties.Resources.EditPen;
-            this.редактироватьСобытиеToolStripMenuItem.Name = "редактироватьСобытиеToolStripMenuItem";
-            this.редактироватьСобытиеToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.редактироватьСобытиеToolStripMenuItem.Text = "Edit Event";
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -926,17 +927,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.BsDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBKurs23DataSet)).EndInit();
             this.PanelDown.ResumeLayout(false);
+            this.flowLayoutPanel5.ResumeLayout(false);
+            this.flowLayoutPanel6.ResumeLayout(false);
+            this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
             this.PanelCalendar.ResumeLayout(false);
             this.PanelCalendar.PerformLayout();
             this.guna2Panel1.ResumeLayout(false);
             this.CMenuStrip.ResumeLayout(false);
             this.CMenuEdit.ResumeLayout(false);
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel5.ResumeLayout(false);
-            this.flowLayoutPanel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

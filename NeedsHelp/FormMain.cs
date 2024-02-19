@@ -106,8 +106,8 @@ namespace NeedsHelp
             // TODO: This line of code loads data into the 'dBKurs23DataSet.Events' table. You can move, or remove it, as needed.
             this.eventsTableAdapter.Fill(this.dBKurs23DataSet.Events);
 
-            // ЧТЕНИЕ ДАННЫХ ИЗ EXCEL ТАБЛИЦЫ, ВРЕМЕННО НЕ НУЖЕН, Т.К. ТРУДНОСТИ С ДОБАВЛЕНИЕМ В UDAYS CONTAINER ДОПОЛНИТЕЛЬНЫХ СИМВОЛОВ !=INT + К ЭТОМУ ЗАТЕМ
-            // СЧИТЫВАЕТСЯ ЗНАЧЕНИЕ ПОЛЯ(В СЛУЧАЕ ЕСЛИ ДОП СИМВОЛ !=INT, ТОГДА СНОВА ВЫДАЕТ ОШИБКУ) + УВЕЛИЧИВАЕТ ВРЕМЯ ЗАГРУЗКИ ФОРМЫ
+            // ТРУДНОСТИ С ДОБАВЛЕНИЕМ В UDAYS CONTAINER ДОПОЛНИТЕЛЬНЫХ СИМВОЛОВ !=INT + К ЭТОМУ ЗАТЕМ
+            // СЧИТЫВАЕТСЯ ЗНАЧЕНИЕ ПОЛЯ(В СЛУЧАЕ ЕСЛИ ДОП СИМВОЛ !=INT, ТОГДА СНОВА ВЫДАЕТ ОШИБКУ)
 
             
             // Ошибка если файл открыт
@@ -369,6 +369,12 @@ namespace NeedsHelp
         private void BtnEndedEvents_Click(object sender, EventArgs e)
         {
             FormEndedList Frm = new FormEndedList();
+            Frm.ShowDialog();
+        }
+
+        private void BtnNotes_Click(object sender, EventArgs e)
+        {
+            FormNotes Frm = new FormNotes();
             Frm.ShowDialog();
         }
 

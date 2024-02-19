@@ -1,6 +1,6 @@
 ﻿namespace NeedsHelp
 {
-    partial class FormUserManual
+    partial class FormNotes
     {
         /// <summary>
         /// Required designer variable.
@@ -29,18 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUserManual));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNotes));
             this.PanelDown = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.PanelData = new Guna.UI2.WinForms.Guna2Panel();
             this.PanelScroll = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.LblManual = new System.Windows.Forms.Label();
+            this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.LblInformation = new System.Windows.Forms.Label();
             this.DgvEvents = new System.Windows.Forms.DataGridView();
             this.IdEvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,11 +45,14 @@
             this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.CMenuNotes = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.AddNote = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelDown.SuspendLayout();
             this.PanelData.SuspendLayout();
             this.PanelScroll.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvEvents)).BeginInit();
             this.guna2Panel1.SuspendLayout();
+            this.CMenuNotes.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelDown
@@ -67,7 +67,7 @@
             this.PanelDown.Location = new System.Drawing.Point(0, 0);
             this.PanelDown.Name = "PanelDown";
             this.PanelDown.Size = new System.Drawing.Size(876, 528);
-            this.PanelDown.TabIndex = 34;
+            this.PanelDown.TabIndex = 35;
             // 
             // guna2Panel3
             // 
@@ -96,62 +96,22 @@
             // PanelScroll
             // 
             this.PanelScroll.AutoScroll = true;
-            this.PanelScroll.Controls.Add(this.label3);
-            this.PanelScroll.Controls.Add(this.label2);
-            this.PanelScroll.Controls.Add(this.label1);
-            this.PanelScroll.Controls.Add(this.LblManual);
+            this.PanelScroll.Controls.Add(this.guna2ShadowPanel1);
             this.PanelScroll.Location = new System.Drawing.Point(5, 5);
             this.PanelScroll.Name = "PanelScroll";
             this.PanelScroll.Size = new System.Drawing.Size(840, 463);
             this.PanelScroll.TabIndex = 1;
+            this.PanelScroll.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PanelScroll_MouseClick);
             // 
-            // label3
+            // guna2ShadowPanel1
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(14, 297);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(784, 175);
-            this.label3.TabIndex = 31;
-            this.label3.Text = resources.GetString("label3.Text");
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(32, 111);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(545, 175);
-            this.label2.TabIndex = 30;
-            this.label2.Text = resources.GetString("label2.Text");
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(14, 80);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(734, 25);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Добро пожаловать в руководство по использованию приложения!";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // LblManual
-            // 
-            this.LblManual.AutoSize = true;
-            this.LblManual.BackColor = System.Drawing.Color.White;
-            this.LblManual.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LblManual.Location = new System.Drawing.Point(94, 14);
-            this.LblManual.Name = "LblManual";
-            this.LblManual.Size = new System.Drawing.Size(609, 50);
-            this.LblManual.TabIndex = 28;
-            this.LblManual.Text = "Руководство пользователя\r\n для системного приложения \"Календарь-органайзер\".";
-            this.LblManual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel1.FillColor = System.Drawing.Color.White;
+            this.guna2ShadowPanel1.Location = new System.Drawing.Point(22, 21);
+            this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
+            this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(250, 200);
+            this.guna2ShadowPanel1.TabIndex = 2;
             // 
             // LblInformation
             // 
@@ -172,41 +132,41 @@
             this.DgvEvents.AllowUserToResizeRows = false;
             this.DgvEvents.BackgroundColor = System.Drawing.Color.White;
             this.DgvEvents.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvEvents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvEvents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DgvEvents.ColumnHeadersHeight = 30;
             this.DgvEvents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DgvEvents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdEvent});
             this.DgvEvents.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvEvents.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvEvents.DefaultCellStyle = dataGridViewCellStyle2;
             this.DgvEvents.EnableHeadersVisualStyles = false;
             this.DgvEvents.GridColor = System.Drawing.Color.White;
             this.DgvEvents.Location = new System.Drawing.Point(3, 3);
             this.DgvEvents.MultiSelect = false;
             this.DgvEvents.Name = "DgvEvents";
             this.DgvEvents.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvEvents.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvEvents.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DgvEvents.RowHeadersVisible = false;
             this.DgvEvents.RowTemplate.Height = 35;
             this.DgvEvents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -269,7 +229,22 @@
             this.guna2DragControl2.TargetControl = this.guna2Panel1;
             this.guna2DragControl2.UseTransparentDrag = true;
             // 
-            // FormUserManual
+            // CMenuNotes
+            // 
+            this.CMenuNotes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddNote});
+            this.CMenuNotes.Name = "CMenuEdit";
+            this.CMenuNotes.Size = new System.Drawing.Size(124, 26);
+            // 
+            // AddNote
+            // 
+            this.AddNote.Image = global::NeedsHelp.Properties.Resources.EditPen;
+            this.AddNote.Name = "AddNote";
+            this.AddNote.Size = new System.Drawing.Size(123, 22);
+            this.AddNote.Text = "Add note";
+            this.AddNote.Click += new System.EventHandler(this.AddNote_Click);
+            // 
+            // FormNotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -277,15 +252,17 @@
             this.Controls.Add(this.PanelDown);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormUserManual";
+            this.Name = "FormNotes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormUserManual";
+            this.Text = "FormNotes";
+            this.Load += new System.EventHandler(this.FormNotes_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormNotes_MouseDown);
             this.PanelDown.ResumeLayout(false);
             this.PanelData.ResumeLayout(false);
             this.PanelScroll.ResumeLayout(false);
-            this.PanelScroll.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvEvents)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
+            this.CMenuNotes.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -296,10 +273,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2Panel PanelData;
         private System.Windows.Forms.Panel PanelScroll;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label LblManual;
         private System.Windows.Forms.Label LblInformation;
         public System.Windows.Forms.DataGridView DgvEvents;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdEvent;
@@ -307,5 +280,8 @@
         private Guna.UI2.WinForms.Guna2Button BtnClose;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse3;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl2;
+        private System.Windows.Forms.ContextMenuStrip CMenuNotes;
+        private System.Windows.Forms.ToolStripMenuItem AddNote;
+        private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
     }
 }
