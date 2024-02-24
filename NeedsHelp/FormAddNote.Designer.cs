@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddNote));
             this.PanelScroll = new System.Windows.Forms.Panel();
+            this.LblCloseWithoutSave = new System.Windows.Forms.Label();
             this.TbxTitle = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.LblCountSim = new System.Windows.Forms.Label();
@@ -40,7 +41,7 @@
             this.LblTime = new System.Windows.Forms.Label();
             this.FindSymbols = new System.Windows.Forms.Timer(this.components);
             this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.LblCloseWithoutSave = new System.Windows.Forms.Label();
+            this.Delnote = new System.Windows.Forms.Button();
             this.PanelScroll.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +50,7 @@
             this.PanelScroll.AutoScroll = true;
             this.PanelScroll.BackColor = System.Drawing.Color.White;
             this.PanelScroll.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanelScroll.Controls.Add(this.Delnote);
             this.PanelScroll.Controls.Add(this.LblCloseWithoutSave);
             this.PanelScroll.Controls.Add(this.TbxTitle);
             this.PanelScroll.Controls.Add(this.label2);
@@ -61,6 +63,16 @@
             this.PanelScroll.Name = "PanelScroll";
             this.PanelScroll.Size = new System.Drawing.Size(374, 449);
             this.PanelScroll.TabIndex = 2;
+            // 
+            // LblCloseWithoutSave
+            // 
+            this.LblCloseWithoutSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LblCloseWithoutSave.Location = new System.Drawing.Point(336, 6);
+            this.LblCloseWithoutSave.Name = "LblCloseWithoutSave";
+            this.LblCloseWithoutSave.Size = new System.Drawing.Size(26, 20);
+            this.LblCloseWithoutSave.TabIndex = 9;
+            this.LblCloseWithoutSave.Text = "✖";
+            this.LblCloseWithoutSave.Click += new System.EventHandler(this.LblCloseWithoutSave_Click);
             // 
             // TbxTitle
             // 
@@ -154,15 +166,20 @@
             this.guna2DragControl2.TargetControl = this;
             this.guna2DragControl2.UseTransparentDrag = true;
             // 
-            // LblCloseWithoutSave
+            // Delnote
             // 
-            this.LblCloseWithoutSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LblCloseWithoutSave.Location = new System.Drawing.Point(336, 6);
-            this.LblCloseWithoutSave.Name = "LblCloseWithoutSave";
-            this.LblCloseWithoutSave.Size = new System.Drawing.Size(26, 20);
-            this.LblCloseWithoutSave.TabIndex = 9;
-            this.LblCloseWithoutSave.Text = "✖";
-            this.LblCloseWithoutSave.Click += new System.EventHandler(this.LblCloseWithoutSave_Click);
+            this.Delnote.BackColor = System.Drawing.Color.Brown;
+            this.Delnote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Delnote.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Delnote.ForeColor = System.Drawing.Color.White;
+            this.Delnote.Location = new System.Drawing.Point(210, 3);
+            this.Delnote.Name = "Delnote";
+            this.Delnote.Size = new System.Drawing.Size(116, 26);
+            this.Delnote.TabIndex = 77;
+            this.Delnote.Text = "Delete Note";
+            this.Delnote.UseVisualStyleBackColor = false;
+            this.Delnote.Visible = false;
+            this.Delnote.Click += new System.EventHandler(this.Delnote_Click);
             // 
             // FormAddNote
             // 
@@ -197,5 +214,6 @@
         private System.Windows.Forms.RichTextBox TbxTitle;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl2;
         private System.Windows.Forms.Label LblCloseWithoutSave;
+        public System.Windows.Forms.Button Delnote;
     }
 }

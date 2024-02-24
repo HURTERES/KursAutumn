@@ -47,9 +47,12 @@
             this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.CMenuNotes = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.AddNote = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.PanelDown.SuspendLayout();
             this.PanelData.SuspendLayout();
             this.PanelScroll.SuspendLayout();
+            this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvEvents)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.CMenuNotes.SuspendLayout();
@@ -106,6 +109,8 @@
             // guna2ShadowPanel1
             // 
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel1.Controls.Add(this.panel2);
+            this.guna2ShadowPanel1.Controls.Add(this.panel1);
             this.guna2ShadowPanel1.FillColor = System.Drawing.Color.White;
             this.guna2ShadowPanel1.Location = new System.Drawing.Point(22, 21);
             this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
@@ -244,6 +249,20 @@
             this.AddNote.Text = "Add note";
             this.AddNote.Click += new System.EventHandler(this.AddNote_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(18, 36);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 2);
+            this.panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(18, 160);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 2);
+            this.panel2.TabIndex = 3;
+            // 
             // FormNotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -260,6 +279,7 @@
             this.PanelDown.ResumeLayout(false);
             this.PanelData.ResumeLayout(false);
             this.PanelScroll.ResumeLayout(false);
+            this.guna2ShadowPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DgvEvents)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.CMenuNotes.ResumeLayout(false);
@@ -283,5 +303,7 @@
         private System.Windows.Forms.ContextMenuStrip CMenuNotes;
         private System.Windows.Forms.ToolStripMenuItem AddNote;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
     }
 }
