@@ -378,6 +378,12 @@ namespace NeedsHelp
             Frm.ShowDialog();
         }
 
+        private void BtnBook_Click(object sender, EventArgs e)
+        {
+            FormPhoneBook Frm = new FormPhoneBook();
+            Frm.ShowDialog();
+        }
+
         private void FormMain_Shown(object sender, EventArgs e)
         {
             TimerAlarm.Enabled = true;

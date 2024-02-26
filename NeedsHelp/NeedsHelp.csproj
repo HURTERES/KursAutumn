@@ -138,6 +138,12 @@
     <Compile Include="FormNotes.Designer.cs">
       <DependentUpon>FormNotes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPhoneBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPhoneBook.Designer.cs">
+      <DependentUpon>FormPhoneBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUserManual.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="UserControlBlank.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -175,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNotes.resx">
       <DependentUpon>FormNotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPhoneBook.resx">
+      <DependentUpon>FormPhoneBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUserManual.resx">
       <DependentUpon>FormUserManual.cs</DependentUpon>
@@ -206,11 +220,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -254,6 +263,7 @@
     <None Include="Resources\EditPen.png" />
     <None Include="Resources\MoreInformation.png" />
     <None Include="Resources\gear.png" />
+    <None Include="Resources\Avatar.png" />
     <Content Include="Resources\WhiteBook.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

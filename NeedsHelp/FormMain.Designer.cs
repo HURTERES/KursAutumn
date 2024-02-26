@@ -78,16 +78,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.BtnSettings = new Guna.UI2.WinForms.Guna2Button();
             this.BtnHide = new Guna.UI2.WinForms.Guna2Button();
             this.BtnClose = new Guna.UI2.WinForms.Guna2Button();
             this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2DragControl3 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Show2SloiAnimated = new Guna.UI2.WinForms.Guna2Transition();
             this.CMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.добавитьСобытиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CMenuEdit = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.редактироватьСобытиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
@@ -96,6 +93,9 @@
             this.Org_Pro = new System.Windows.Forms.NotifyIcon(this.components);
             this.TimerAlarm = new System.Windows.Forms.Timer(this.components);
             this.guna2Elipse4 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.BtnSettings = new Guna.UI2.WinForms.Guna2Button();
+            this.добавитьСобытиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.редактироватьСобытиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MiddleContainer.SuspendLayout();
             this.PanelData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvEvents)).BeginInit();
@@ -329,6 +329,7 @@
             this.BtnBook.Size = new System.Drawing.Size(305, 37);
             this.BtnBook.TabIndex = 20;
             this.BtnBook.Text = "Contacts";
+            this.BtnBook.Click += new System.EventHandler(this.BtnBook_Click);
             // 
             // flowLayoutPanel6
             // 
@@ -719,31 +720,6 @@
             this.guna2Panel1.TabIndex = 12;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
-            // BtnSettings
-            // 
-            this.BtnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnSettings.Animated = true;
-            this.BtnSettings.BackColor = System.Drawing.Color.Transparent;
-            this.BtnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnSettings.BorderColor = System.Drawing.Color.Transparent;
-            this.BtnSettings.BorderRadius = 8;
-            this.BtnSettings.BorderThickness = 1;
-            this.Show2SloiAnimated.SetDecoration(this.BtnSettings, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.BtnSettings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnSettings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnSettings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnSettings.FillColor = System.Drawing.Color.Transparent;
-            this.BtnSettings.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BtnSettings.ForeColor = System.Drawing.Color.Black;
-            this.BtnSettings.Image = global::NeedsHelp.Properties.Resources.gear;
-            this.BtnSettings.Location = new System.Drawing.Point(12, 5);
-            this.BtnSettings.Name = "BtnSettings";
-            this.BtnSettings.PressedColor = System.Drawing.Color.Gray;
-            this.BtnSettings.ShadowDecoration.BorderRadius = 30;
-            this.BtnSettings.Size = new System.Drawing.Size(23, 22);
-            this.BtnSettings.TabIndex = 4;
-            // 
             // BtnHide
             // 
             this.BtnHide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -840,13 +816,6 @@
             this.CMenuStrip.Size = new System.Drawing.Size(129, 26);
             this.CMenuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.CMenuStrip_ItemClicked);
             // 
-            // добавитьСобытиеToolStripMenuItem
-            // 
-            this.добавитьСобытиеToolStripMenuItem.Image = global::NeedsHelp.Properties.Resources.AddEvent;
-            this.добавитьСобытиеToolStripMenuItem.Name = "добавитьСобытиеToolStripMenuItem";
-            this.добавитьСобытиеToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
-            this.добавитьСобытиеToolStripMenuItem.Text = "Add Event";
-            // 
             // CMenuEdit
             // 
             this.Show2SloiAnimated.SetDecoration(this.CMenuEdit, Guna.UI2.AnimatorNS.DecorationType.None);
@@ -855,13 +824,6 @@
             this.CMenuEdit.Name = "CMenuEdit";
             this.CMenuEdit.Size = new System.Drawing.Size(127, 26);
             this.CMenuEdit.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.CMenuEdit_ItemClicked);
-            // 
-            // редактироватьСобытиеToolStripMenuItem
-            // 
-            this.редактироватьСобытиеToolStripMenuItem.Image = global::NeedsHelp.Properties.Resources.EditPen;
-            this.редактироватьСобытиеToolStripMenuItem.Name = "редактироватьСобытиеToolStripMenuItem";
-            this.редактироватьСобытиеToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.редактироватьСобытиеToolStripMenuItem.Text = "Edit Event";
             // 
             // guna2Elipse1
             // 
@@ -904,6 +866,45 @@
             // 
             this.guna2Elipse4.BorderRadius = 4;
             this.guna2Elipse4.TargetControl = this.flowLayoutPanel1;
+            // 
+            // BtnSettings
+            // 
+            this.BtnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnSettings.Animated = true;
+            this.BtnSettings.BackColor = System.Drawing.Color.Transparent;
+            this.BtnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnSettings.BorderColor = System.Drawing.Color.Transparent;
+            this.BtnSettings.BorderRadius = 8;
+            this.BtnSettings.BorderThickness = 1;
+            this.Show2SloiAnimated.SetDecoration(this.BtnSettings, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.BtnSettings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnSettings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnSettings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnSettings.FillColor = System.Drawing.Color.Transparent;
+            this.BtnSettings.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BtnSettings.ForeColor = System.Drawing.Color.Black;
+            this.BtnSettings.Image = global::NeedsHelp.Properties.Resources.gear;
+            this.BtnSettings.Location = new System.Drawing.Point(12, 5);
+            this.BtnSettings.Name = "BtnSettings";
+            this.BtnSettings.PressedColor = System.Drawing.Color.Gray;
+            this.BtnSettings.ShadowDecoration.BorderRadius = 30;
+            this.BtnSettings.Size = new System.Drawing.Size(23, 22);
+            this.BtnSettings.TabIndex = 4;
+            // 
+            // добавитьСобытиеToolStripMenuItem
+            // 
+            this.добавитьСобытиеToolStripMenuItem.Image = global::NeedsHelp.Properties.Resources.AddEvent;
+            this.добавитьСобытиеToolStripMenuItem.Name = "добавитьСобытиеToolStripMenuItem";
+            this.добавитьСобытиеToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.добавитьСобытиеToolStripMenuItem.Text = "Add Event";
+            // 
+            // редактироватьСобытиеToolStripMenuItem
+            // 
+            this.редактироватьСобытиеToolStripMenuItem.Image = global::NeedsHelp.Properties.Resources.EditPen;
+            this.редактироватьСобытиеToolStripMenuItem.Name = "редактироватьСобытиеToolStripMenuItem";
+            this.редактироватьСобытиеToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.редактироватьСобытиеToolStripMenuItem.Text = "Edit Event";
             // 
             // FormMain
             // 

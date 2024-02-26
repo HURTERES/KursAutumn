@@ -38,6 +38,8 @@
             this.PanelData = new Guna.UI2.WinForms.Guna2Panel();
             this.PanelScroll = new System.Windows.Forms.Panel();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.LblInformation = new System.Windows.Forms.Label();
             this.DgvEvents = new System.Windows.Forms.DataGridView();
             this.IdEvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,8 +49,6 @@
             this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.CMenuNotes = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.AddNote = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.PanelDown.SuspendLayout();
             this.PanelData.SuspendLayout();
             this.PanelScroll.SuspendLayout();
@@ -117,6 +117,20 @@
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(250, 200);
             this.guna2ShadowPanel1.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(18, 160);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 2);
+            this.panel2.TabIndex = 3;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(18, 36);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 2);
+            this.panel1.TabIndex = 0;
             // 
             // LblInformation
             // 
@@ -248,20 +262,6 @@
             this.AddNote.Size = new System.Drawing.Size(123, 22);
             this.AddNote.Text = "Add note";
             this.AddNote.Click += new System.EventHandler(this.AddNote_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(18, 36);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 2);
-            this.panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(18, 160);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 2);
-            this.panel2.TabIndex = 3;
             // 
             // FormNotes
             // 

@@ -14,6 +14,7 @@ using OfficeOpenXml;
 using System.Globalization;
 using ExcelDataReader.Log.Logger;
 using System.Security.Policy;
+using System.Web.Configuration;
 
 namespace NeedsHelp
 {
@@ -292,6 +293,9 @@ namespace NeedsHelp
             }
             Misses = 0;
             PanelScroll.AutoScrollPosition = new Point(0, 0);
+            PanelScroll.AutoScroll = false;
+            PanelScroll.VerticalScroll.Maximum = 0;
+            PanelScroll.AutoScroll = true;
         }
 
 
